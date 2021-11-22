@@ -94,3 +94,8 @@ def index(request):
     context_dict = {}
     response = render(request, 'coding/index.html', context=context_dict)
     return response
+
+def gamePage(request):
+    #context_dict = {}
+    response = render(request, 'coding/game.html')
+    return response

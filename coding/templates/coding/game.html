@@ -1,0 +1,64 @@
+{% extends 'coding/base.html' %}
+{% load static %}
+
+{% block head_block %}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="{% static 'unity/css/reset.css' %}">
+<link rel="stylesheet" href="{% static 'unity/css/style.css' %}">
+{% endblock %}
+
+{% block title_block %}
+    Game
+{% endblock %}
+
+{% block body_block %}
+<div class="webgl-wrapper">
+    <div class="aspect"></div>
+        <div class="webgl-content">
+            <div id="unityContainer">
+                <canvas id="unity-canvas" style="background: #E6E7EE"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="info">
+        <p>unity webgl responsive</p>
+        <p>press F or <a href="#" onclick="myGameInstance.SetFullscreen(1)">click here</a> to toggle fullscreen</p>
+    </div>
+
+    <script src="{% static 'unity/MyLoader.js' %}"></script>
+
+    <script>
+        createUnityInstance(document.querySelector("#unity-canvas"), {
+        dataUrl: "{% static 'unity/Build/2.4.data' %}",
+        frameworkUrl: "{% static 'unity/Build/2.4.framework.js' %}",
+        codeUrl: "{% static 'unity/Build/2.4.wasm' %}",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "Sirius",
+        productName: "CodingSky",
+        productVersion: "2.3",
+        }).then((unityInstance) => {
+        myGameInstance = unityInstance;
+        });
+
+        function GetLevel(score,name){
+            console.log(score);       //控制台输出当前关卡
+        }
+    </script>
+
+    <!-- check for F key press to toggle full screen -->
+    <script>
+        var isFullscreen = false;
+
+        document.addEventListener('keydown', function(event) {
+            if (event.which === 70) {
+                if (!isFullscreen) {
+                myGameInstance.SetFullscreen(1);
+                } else {
+                myGameInstance.SetFullscreen(0);
+                }
+                isFullscreen = !isFullscreen;
+            }
+        });
+    </script>
+{% endblock %}

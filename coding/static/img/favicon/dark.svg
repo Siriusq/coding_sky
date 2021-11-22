@@ -1,0 +1,10 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 110" width="110" height="110">
+	<title>dark favicon</title>
+	<defs>
+		<image  width="110" height="110" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAG4AAABuCAMAAADxhdbJAAAAAXNSR0IB2cksfwAAAEJQTFRFLzJLMTRLMDNLAAAAKTNHMDRKLzNLLjNHMTNKMDBAMDRKLzNLMDNLMDRKMTNKLCxOMTNLMDRLMDNKLy9MLi5JMTRLz3GntQAAABZ0Uk5TUv/9ABmAQTKDENmBtcC9F9vy3xscY7VL7eUAAADDSURBVHic7dnJCgIxEEXRaJyndvz/X9V2DN0pVPA9EO5dFxyqFtkkpYGxYYKDg4ODg4ODg4NTcNkaHBwc3H9zo3HQRMJNo9d7BgcHBwcHBwcHBwcHBwcHBwcHBwf3hpsvAm5Zjq3WP2mTcrP9YLtddIPvan+4Ak/FBZ6Mq3s6ruoJuZqn5CqelOt7Wq7nibmup+Y6npzLzd7K5UPhGbjSc3CFZ+Fenod7eibu4bm4u2fjbp6Pu3pGrvWc3MWzcvl4UnBnyhRpSjWjynkAAAAASUVORK5CYII="/>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+	</style>
+	<use  href="#img1" x="0" y="0" />
+</svg>
