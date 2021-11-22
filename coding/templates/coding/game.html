@@ -20,11 +20,12 @@
             </div>
         </div>
     </div>
+    
+    <button type="button" class="btn btn-primary btn-sm mr-0 mb-2 mt-2 float-right" data-toggle="tooltip" data-placement="left" title="Click Or Press F" onclick="myGameInstance.SetFullscreen(1)">
+        FullScreen
+        <span class="mr-1"><span class="fas fa-expand"></span></span>
+    </button>
 
-    <div class="info">
-        <p>unity webgl responsive</p>
-        <p>press F or <a href="#" onclick="myGameInstance.SetFullscreen(1)">click here</a> to toggle fullscreen</p>
-    </div>
 
     <script src="{% static 'unity/MyLoader.js' %}"></script>
 
