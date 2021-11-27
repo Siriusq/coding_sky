@@ -15,3 +15,8 @@ def gamePage(request):
     #context_dict = {}
     response = render(request, 'coding/game.html')
     return response
+
+def solutionPage(request):
+    #context_dict = {}
+    response = render(request, 'coding/solution.html')
+    return response

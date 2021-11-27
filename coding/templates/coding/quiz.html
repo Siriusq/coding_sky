@@ -1,0 +1,27 @@
+{% extends 'coding/base.html' %}
+{% load static %}
+
+{% block title_block %}
+    Quizpage
+{% endblock %}
+
+{% block body_block %}
+
+    {% for i in quiz %}
+    <div class="col-md-4">
+        <div class="card" style="width: 21rem;">
+            <div class="card-body">
+                <h5 class="card-title" style="text-align: center;">{{i.name}}</h5>
+                <br>
+                <p class="card-text">{{i.desc}}</p>
+                <br>
+                <button data-bs-target="#exampleModal" data-bs-toggle="modal" data-time="{{i.time}}"
+                    data-questions="{{i.number_of_questions}}" data-name="{{i.name}}" data-id="{{i.id}}" id="btn"
+                    style="justify-content: center;" class="attempt btn mr-2 modal-button"><i class="fas fa-link"></i>Attempt
+                    Quiz</button>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+{% endblock %}

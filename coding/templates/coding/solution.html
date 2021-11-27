@@ -1,0 +1,49 @@
+{% extends 'coding/base.html' %}
+{% load static %}
+
+{% block title_block %}
+    SolutionPage
+{% endblock %}
+
+{% block head_block %}
+<style type="text/css" media="screen">
+    #editor { 
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+    .editor-container {
+            position: relative;
+            height: 300px;
+            width: 100%;
+    }
+</style>
+
+{% endblock %}
+
+{% block body_block %}
+<div class="editor-container">
+    <div id="editor">//Real Code In Python
+def MoveForward(){// Dog Knight Move 1 Tile Forward}
+def Level1(){
+    MoveForward();
+    TurnLeft();
+}
+
+    </div>
+</div>
+
+    
+<script src="{% static 'ace/ace.js' %}" type="text/javascript" charset="utf-8"></script>
+
+<script>
+    var editor = ace.edit('editor');
+    editor.setTheme("ace/theme/monokai");
+    editor.session.setMode("ace/mode/python");
+    editor.setReadOnly(true);
+    editor.resize();
+    editor.setValue();
+</script>
+{% endblock %}

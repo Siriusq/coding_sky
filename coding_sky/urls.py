@@ -19,7 +19,7 @@ from django.urls import path
 from django.urls import include
 from django.conf import settings
 from django.conf.urls.static import static
-from registration.backends.simple.views import RegistrationView
+#from registration.backends.simple.views import RegistrationView
 from django.urls import reverse
 
 from coding.views import *
