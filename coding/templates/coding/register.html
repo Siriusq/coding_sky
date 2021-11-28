@@ -2,6 +2,35 @@
 
 {% load static %}
 
-{% block content %}
+{% block title_block %}
+    Register
+{% endblock %}
 
+{% block body_block %}
+<div class="main">  
+    <p align="center" class="sign">  
+    Create Account  
+    </p>  
+    <form class="form1" method="POST">  
+    {% if messages %}  
+   <ul class="messages">  
+    {% for message in messages %}  
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %} style="color:red;">{{ message }}</li>  
+    {% endfor %}  
+   </ul>  
+   {% endif %}  
+    {% csrf_token %}  
+    <input align="center" class="un" placeholder="Username" name="username" type="text"/>  
+    <input align="center" class="un" placeholder="email" name="email" type="email"/>  
+    <input align="center" class="pass" placeholder="Password" name="password" type="password"/>  
+    <button align="center" class="submit" type="submit">  
+    Register  
+    </button>  
+    <center>  
+    <a href="login">  
+    Already have an account? Login  
+    </a>  
+    </center>  
+    </form>  
+    </div>  
 {% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'coding/base.html' %}
+{% load static %}
+
+{% block title_block %}
+    Quiz Dashboard
+{% endblock %}
+
+{% block body_block %}
+<div class="main">  
+    <p align="center" class="sign">  
+    Welcome {{user}}  
+    </p>  
+    <center>  
+    <form class="form1">  
+    {% if messages %}  
+   <ul class="messages">  
+    {% for message in messages %}  
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %} style="color:red;">{{ message }}</li>  
+    {% endfor %}  
+   </ul>  
+   {% endif %}  
+    <a href="quiz"><button type="button" class="btn btn-rounded btn-primary" style="background-color:purple !important;">START QUIZ</button></a>  
+    <br>  
+    </form>  
+    <form class="form1">  
+    <a href="create-quiz"><button type="button" class="btn btn-rounded btn-primary" style="background-color:purple !important;">CREATE QUIZ</button></a>  
+    <br>  
+    </form>  
+    <form class="form1">  
+    <a href="create-questions"><button type="button" class="btn btn-rounded btn-primary" style="background-color:purple !important;">CREATE QUESTION</button></a>  
+    <br>  
+   </form>  
+    <form class="form1">  
+    <a href="login"><button type="button" class="btn btn-rounded btn-primary" style="background-color:purple !important;">LOGOUT</button></a>  
+    </form>  
+    </center>  
+    </div>  
+{% endblock %}

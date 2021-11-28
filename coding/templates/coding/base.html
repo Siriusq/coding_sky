@@ -109,8 +109,8 @@
                             <a class="btn btn-primary d-none d-md-inline-block mr-3" href="#"><i class="fas fa-user-alt"></i> Welcome {{request.user}}</a>                            
                             <a class="btn btn-primary d-none d-md-inline-block mr-0" href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>                               
                         {% else %}                                    
-                            <a class="btn btn-primary d-none d-md-inline-block mr-3" href="/signup"><i class="fas fa-user-plus"></i> Sign Up</a>                            
-                            <a class="btn btn-primary d-none d-md-inline-block mr-0" href="/login"><i class="fas fa-sign-in-alt"></i> Login</a>                                                       
+                            <a class="btn btn-primary d-none d-md-inline-block mr-3" href="{% url 'coding:register' %}"><i class="fas fa-user-plus"></i> Sign Up</a>                            
+                            <a class="btn btn-primary d-none d-md-inline-block mr-0" href="{% url 'coding:login' %}"><i class="fas fa-sign-in-alt"></i> Login</a>                                                       
                         {% endif %}                        
 
                         <button class="navbar-toggler ml-2" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">

@@ -30,7 +30,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('coding/', include('coding.urls')),
     path('', index,name='index'),
-    #path('register/', registerPage,name='register'),
-    #path('login/', loginPage,name='login'),
-    #path('logout/', logoutPage,name='logout'),
 ]

@@ -1,0 +1,61 @@
+{% extends 'coding/base.html' %}
+
+{% load static%}
+
+{% block title_block %}
+    Answer Quiz
+{% endblock %}
+
+{% block body_block %}
+<div class="main">  
+    <p align="center" class="sign">  
+    Choose Any Option from A to D  
+    </p>  
+    <center>  
+    <div class="card" style="width: 18rem;">  
+    <div class="card-body">  
+    </div>  
+    <br>  
+   </div>  
+   <a class="btn btn-primary">SCIENCE TEST</a>  
+   {% if messages %}  
+   <ul class="messages">  
+   {% for message in messages %}  
+   <li{% if message.tags %} class="{{ message.tags }}"{% endif %} style="color:red;">{{ message }}</li>  
+   {% endfor %}  
+   </ul>  
+   {% endif %}  
+    {% if score %}  
+    <h1>Total Score: {{score}} out of {{question_count}}<h1>  
+    {% else %}  
+    <nav aria-label="...">  
+    <br>  
+    <p><b>Question: {{question.question_asked}}</b></p>  
+    <br>  
+    <form method="POST" >  
+    {% csrf_token %}  
+    <p>A. {{question.answer_1}} <input type="radio" name="answer" value="{{question.answer_1}}" /></p>  
+    <p>B. {{question.answer_2}} <input type="radio" name="answer" value="{{question.answer_2}}" /></p>  
+    <p>C. {{question.answer_3}} <input type="radio" name="answer" value="{{question.answer_3}}" /></p>  
+    <p>D. {{question.answer_4}} <input type="radio" name="answer" value="{{question.answer_4}}" /></p>  
+    <input type="hidden" name="question" value="{{question.question_asked}}"/>  
+   
+    <ul class="pagination">  
+    <li class="page-item disabled">  
+    <a class="page-link" href="?page={{ prev_page }}" tabindex="-1">Previous</a>  
+    </li>  
+    <li class="page-item">  
+    <a class="page-link" href="?page={{next_page }}">Next</a>  
+    </li>  
+    </ul>  
+   </nav>  
+   <button class="btn btn-danger" type="submit">Save Answer</button>  
+   </form>  
+   {% if finish %}  
+   <a href="?finish=true"><button class="btn btn-danger" >Finish</button></a>  
+   {% endif %}  
+   {% endif %}  
+    <a href="{% url 'App:dashboard' %}" class="btn btn-primary">Back</a>  
+   </center>  
+    </div>  
+{% endblock %}

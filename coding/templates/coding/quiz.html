@@ -6,22 +6,38 @@
 {% endblock %}
 
 {% block body_block %}
-
-    {% for i in quiz %}
-    <div class="col-md-4">
-        <div class="card" style="width: 21rem;">
-            <div class="card-body">
-                <h5 class="card-title" style="text-align: center;">{{i.name}}</h5>
-                <br>
-                <p class="card-text">{{i.desc}}</p>
-                <br>
-                <button data-bs-target="#exampleModal" data-bs-toggle="modal" data-time="{{i.time}}"
-                    data-questions="{{i.number_of_questions}}" data-name="{{i.name}}" data-id="{{i.id}}" id="btn"
-                    style="justify-content: center;" class="attempt btn mr-2 modal-button"><i class="fas fa-link"></i>Attempt
-                    Quiz</button>
-            </div>
-        </div>
-    </div>
-    {% endfor %}
-
+<div class="main">  
+    <p align="center" class="sign">  
+    There {% if count == 1 %} is {{count}} quiz {% else %} are {{count}} quizes {% endif %} available  
+    </p>  
+    <p align="center" class="sign">  
+    Choose a Quiz To Take  
+    </p>  
+    <center>  
+    <div class="card" style="width: 18rem;">  
+    <div class="card-body">  
+    </div>  
+    <br>  
+   </div>  
+   <a class="btn btn-primary">{{quiz.name}}</a>  
+    <nav aria-label="...">  
+    <br>  
+    <p><b>About Test</b></p>  
+    <p>{{quiz.description}}</p>  
+    <br>  
+    <p>Total Questions: {{quiz.total_questions}} </p>  
+    <br>  
+    <a href="answer-quiz/{{quiz.name}}" class="btn btn-danger">Start Test</a>  
+    <br>  
+    <ul class="pagination">  
+    <li class="page-item disabled">  
+    <a class="page-link" href="?page={{ prev_page }}" tabindex="-1">Previous</a>  
+    </li>  
+    <li class="page-item">  
+    <a class="page-link" href="?page={{next_page }}">Next</a>  
+    </li>  
+    </ul>  
+   </nav>  
+   </center>  
+    </div>  
 {% endblock %}
