@@ -77,7 +77,7 @@
                                 <a href="{% url 'coding:solutionPage' %}" class="nav-link">Solution</a>
                             </li>
                             <li class="nav-item">
-                                <a href="{% url 'coding:dashboard' %}" class="nav-link">Quiz</a>
+                                <a href="{% url 'coding:quiz_index' %}" class="nav-link">Quiz</a>
                             </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">About</a>
@@ -105,11 +105,11 @@
                     </div>
                     
                     <div class="d-flex align-items-center">
-                        {% if user %} 
-                            <a class="btn btn-primary d-none d-md-inline-block mr-3" href="#"><i class="fas fa-user-alt"></i> Welcome {{user}}</a>                            
+                        {% if user.is_authenticated %}
+                            <a class="btn btn-primary d-none d-md-inline-block mr-3" href="#"><i class="fas fa-user-alt"></i> Welcome {{user.username}}</a>                            
                             <a class="btn btn-primary d-none d-md-inline-block mr-0" href="{% url 'coding:logout' %}"><i class="fas fa-sign-out-alt"></i> Logout</a>                               
                         {% else %}                                    
-                            <a class="btn btn-primary d-none d-md-inline-block mr-3" href="{% url 'coding:register' %}"><i class="fas fa-user-plus"></i> Sign Up</a>                            
+                            <a class="btn btn-primary d-none d-md-inline-block mr-3" href="{% url 'coding:login' %}"><i class="fas fa-user-plus"></i> Sign Up</a>                            
                             <a class="btn btn-primary d-none d-md-inline-block mr-0" href="{% url 'coding:login' %}"><i class="fas fa-sign-in-alt"></i> Login</a>                                                       
                         {% endif %}                        
 
