@@ -13,6 +13,7 @@ from .models import Quiz, Category, Progress, Sitting, Question
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from .forms import NewUser
 
 # Create your views here.
 
@@ -31,6 +32,17 @@ def solutionPage(request):
     response = render(request, 'coding/solution.html')
     return response
 
+def register_user(request):
+	if request.method == "POST":
+		form = NewUser(request.POST)
+		if form.is_valid():
+			user = form.save()
+			login(request, user)
+			messages.success(request, "Registration successful." )
+			return redirect("index")
+		messages.error(request, "Unsuccessful registration. Invalid information.")
+	form = NewUser()
+	return render (request=request, template_name="coding/register.html", context={"register_form":form})
 
 def login_user(request):
 

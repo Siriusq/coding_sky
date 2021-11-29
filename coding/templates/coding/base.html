@@ -114,7 +114,7 @@
                             <a class="btn btn-primary d-none d-md-inline-block mr-3" href="#"><i class="fas fa-user-alt"></i> Welcome {{user.username}}</a>                            
                             <a class="btn btn-primary d-none d-md-inline-block mr-0" href="{% url 'coding:logout' %}"><i class="fas fa-sign-out-alt"></i> Logout</a>                               
                         {% else %}                                    
-                            <a class="btn btn-primary d-none d-md-inline-block mr-3" href="{% url 'coding:login' %}"><i class="fas fa-user-plus"></i> Sign Up</a>                            
+                            <a class="btn btn-primary d-none d-md-inline-block mr-3" href="{% url 'coding:register' %}"><i class="fas fa-user-plus"></i> Sign Up</a>                            
                             <a class="btn btn-primary d-none d-md-inline-block mr-0" href="{% url 'coding:login' %}"><i class="fas fa-sign-in-alt"></i> Login</a>                                                       
                         {% endif %}                        
 
@@ -130,7 +130,7 @@
         <main>
             <section class="section section bg-soft pb-5 overflow-hidden z-2">
                 <div class="container z-2">
-                    
+
                     <div class="container">
                         {% if messages %} {% for message in messages %}
                         <div class="alert alert-warning alert-dismissable" role="alert">

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     
     'coding',
     'mcq',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
