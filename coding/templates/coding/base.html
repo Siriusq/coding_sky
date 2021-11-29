@@ -73,12 +73,17 @@
                             <li class="nav-item">
                                 <a href="{% url 'coding:gamePage' %}" class="nav-link">Game</a>
                             </li>
+                            {% if user.is_authenticated %}
                             <li class="nav-item">
                                 <a href="{% url 'coding:solutionPage' %}" class="nav-link">Solution</a>
                             </li>
                             <li class="nav-item">
                                 <a href="{% url 'coding:quiz_index' %}" class="nav-link">Quiz</a>
                             </li>
+                            <li class="nav-tem">
+                                <a href="{% url 'coding:quiz_progress' %}" class="nav-link">Records</a>
+                            </li>
+                            {% endif %}
                             <li class="nav-item">
                                 <a href="#" class="nav-link">About</a>
                             </li>
@@ -125,6 +130,17 @@
         <main>
             <section class="section section bg-soft pb-5 overflow-hidden z-2">
                 <div class="container z-2">
+                    
+                    <div class="container">
+                        {% if messages %} {% for message in messages %}
+                        <div class="alert alert-warning alert-dismissable" role="alert">
+                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true"><sup>&times;</sup></span>
+                          </button>
+                          {{message}}
+                    </div>
+                        {% endfor %} {% endif %}
+
                     {% block body_block %}{% endblock %}                    
                 </div>
             </section>

@@ -1,14 +1,14 @@
-{% extends 'base.html' %}
+{% extends 'coding/base.html' %}
 {% load i18n %}
 {% block title %}{% trans "All Quizzes" %}{% endblock %}
 
-{% block content %}
+{% block body_block %}
 <h2>{% trans "Category list" %}</h2>
 
 <ul>
   {% for cat in category_list %}
   <li>
-	<a href="{% url 'quiz_category_list_matching' category_name=cat.category %}">
+	<a href="{% url 'coding:quiz_category_list_matching' category_name=cat.category %}">
 	  {{ cat.category }}
 	</a>
   </li>

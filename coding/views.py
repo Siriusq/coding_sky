@@ -44,16 +44,16 @@ def login_user(request):
             return redirect("index")
         else:
             messages.success(request, 'Error logging in')
-            return redirect('login')
+            return redirect("coding:login")
     else:
-        return render(request, 'login.html', {})
+        return render(request, 'coding/login.html', {})
 
 
 def logout_user(request):
     logout(request)
     messages.success(request, 'You have been logged out!')
     print('logout function working')
-    return redirect('login')
+    return redirect('index')
 
 
 class QuizMarkerMixin(object):
@@ -101,7 +101,7 @@ class CategoriesListView(ListView):
 
 class ViewQuizListByCategory(ListView):
     model = Quiz
-    template_name = 'view_quiz_category.html'
+    template_name = 'coding/view_quiz_category.html'
 
     def dispatch(self, request, *args, **kwargs):
         self.category = get_object_or_404(
@@ -125,7 +125,7 @@ class ViewQuizListByCategory(ListView):
 
 
 class QuizUserProgressView(TemplateView):
-    template_name = 'progress.html'
+    template_name = 'coding/progress.html'
 
     @method_decorator(login_required)
     def dispatch(self, request, *args, **kwargs):
@@ -182,7 +182,7 @@ class QuizMarkingDetail(QuizMarkerMixin, DetailView):
 
 class QuizTake(FormView):
     form_class = QuestionForm
-    template_name = 'question.html'
+    template_name = 'coding/question.html'
 
     def dispatch(self, request, *args, **kwargs):
         self.quiz = get_object_or_404(Quiz, url=self.kwargs['quiz_name'])
@@ -195,7 +195,7 @@ class QuizTake(FormView):
             self.sitting = Sitting.objects.user_sitting(request.user,
                                                         self.quiz)
         if self.sitting is False:
-            return render(request, 'single_complete.html')
+            return render(request, 'coding/single_complete.html')
 
         return super(QuizTake, self).dispatch(request, *args, **kwargs)
 
@@ -275,4 +275,4 @@ class QuizTake(FormView):
         if self.quiz.exam_paper is False:
             self.sitting.delete()
 
-        return render(self.request, 'result.html', results)
+        return render(self.request, 'coding/result.html', results)

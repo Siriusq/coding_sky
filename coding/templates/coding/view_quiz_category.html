@@ -1,8 +1,8 @@
-{% extends 'base.html' %}
+{% extends 'coding/base.html' %}
 {% load i18n %}
 {% block title %}{% trans "Quizzes related to" %} {{ category.category }}{% endblock %}
 
-{% block content %}
+{% block body_block %}
 <h1>{% trans "Quizzes in the" %} <strong>{{ category.category }} </strong>{% trans "category" %}</h1>
 
   {% with object_list as quizzes %}
@@ -10,7 +10,7 @@
         <ul>
         {% for quiz in quizzes %}
             <li>
-			  <a href="{% url 'quiz_question' quiz_name=quiz.url %}">
+			  <a href="{% url 'coding:quiz_question' quiz_name=quiz.url %}">
 				{{ quiz.title }}
 			  </a>
 			</li>

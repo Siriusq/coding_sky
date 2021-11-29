@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends 'coding/base.html' %}
 {% load i18n%}
 
 
@@ -6,7 +6,7 @@
 {% block title %} {{ quiz.title }} {% endblock %}
 {% block description %} {{ quiz.title }} - {{ quiz.description }} {% endblock %}
 
-{% block content %}
+{% block body_block %}
 
 {% if previous.answers %}
 

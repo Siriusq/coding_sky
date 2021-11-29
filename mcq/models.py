@@ -1,6 +1,4 @@
 from django.db import models
-
-from django.db import models
 from coding.models import Question
 
 ANSWER_ORDER_OPTIONS = (
