@@ -32,6 +32,10 @@ def solutionPage(request):
     response = render(request, 'coding/solution.html')
     return response
 
+def about(request):
+    response = render(request, 'coding/about.html')
+    return response
+
 def register_user(request):
 	if request.method == "POST":
 		form = NewUser(request.POST)

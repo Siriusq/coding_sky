@@ -1,9 +1,5 @@
 /* demo */
 
-* {
-  font-family: monospace;
-}
-
 body {
   background: #000;
   color: #999;
@@ -71,7 +67,7 @@ a {
 .webgl-content .logo.Dark {background-image: url('../images/progressLogo.Dark.png');}
 .webgl-content .progress.Dark .empty {background-image: url('../images/progressEmpty.Dark.png');}
 .webgl-content .progress.Dark .full {background-image: url('../images/progressFull.Dark.png');}
-.webgl-content .footer {margin-top: 5px; height: 38px; line-height: 38px; font-family: Helvetica, Verdana, Arial, sans-serif; font-size: 18px;}
+.webgl-content .footer {margin-top: 5px; height: 38px; line-height: 38px; font-size: 18px;}
 .webgl-content .footer .webgl-logo, .title, .fullscreen {height: 100%; display: inline-block; background: transparent center no-repeat;}
 .webgl-content .footer .webgl-logo {background-image: url('../images/webgl-logo.png'); width: 204px; float: left;}
 .webgl-content .footer .title {margin-right: 10px; float: right;}
