@@ -12,6 +12,7 @@
 {% endblock %}
 
 {% block body_block %}
+
 <div class="webgl-wrapper">
     <div class="aspect"></div>
         <div class="webgl-content">
@@ -21,15 +22,33 @@
         </div>
     </div>
     
-    <button type="button" class="btn btn-primary btn-sm mr-0 mb-2 mt-2 float-right" data-toggle="tooltip" data-placement="left" title="Click Or Press F" onclick="myGameInstance.SetFullscreen(1)">
-        FullScreen
-        <span class="mr-1"><span class="fas fa-expand"></span></span>
-    </button>
+    <div>
+        <button type="button" class="btn btn-primary btn-sm mr-0 mb-2 mt-2 float-right" data-toggle="tooltip" data-placement="left" title="Click Or Press F" onclick="myGameInstance.SetFullscreen(1)">
+            FullScreen
+            <span class="mr-1"><span class="fas fa-expand"></span></span>
+        </button>    
 
+        <button type="button" class="btn btn-primary btn-sm mr-0 mb-2 mt-2 float-left" data-toggle="tooltip" data-placement="top" title="Click To Show Or Hide" onclick="ShowImage()">
+            Solution
+            <span class="mr-1"><span class="fas fa-expand"></span></span>
+        </button>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="card-body mr-0 mt-1 float-left px-4 py-1">
+            <img src="{% static 'img/solution/holder.png' %}" id="getImage" style="display: none;" class="shadow-soft rounded scale">
+        </div>   
+    </div>
+    
+    
+
+    
+</div>
 
     <script src="{% static 'unity/MyLoader.js' %}"></script>
 
     <script>
+        var imageIndex;
         createUnityInstance(document.querySelector("#unity-canvas"), {
         dataUrl: "{% static 'unity/Build/2.4.data' %}",
         frameworkUrl: "{% static 'unity/Build/2.4.framework.js' %}",
@@ -43,12 +62,31 @@
         });
 
         function GetLevel(score,name){
-            console.log(score);       //控制台输出当前关卡
+            console.log(score);//控制台输出当前关卡
+            imageIndex = score;
+
+            var imageID = document.getElementById('getImage');
+            imageID.style.display = "none";
+        }
+
+        //显示答案图像
+        function ShowImage() {
+            var imageID = document.getElementById('getImage');
+            if(imageIndex>0){
+                imageID.src = "{% static 'img/solution/' %}" + imageIndex + ".png/";
+            }else{
+                imageID.src = "{% static 'img/solution/holder.png' %}";
+            }
+
+            if (imageID.style.display === "none") {
+                imageID.style.display = "block";
+            } else {
+                imageID.style.display = "none";
+            }
         }
     </script>
-
-    <!-- check for F key press to toggle full screen -->
-    <script>
+    
+    <script>//按F全屏
         var isFullscreen = false;
         document.addEventListener('keydown', function(event) {
             if (event.which === 70) {

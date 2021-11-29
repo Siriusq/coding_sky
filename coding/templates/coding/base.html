@@ -130,7 +130,6 @@
         <main>
             <section class="section section bg-soft pb-5 overflow-hidden z-2">
                 <div class="container z-2">
-
                     <div class="container">
                         {% if messages %} {% for message in messages %}
                         <div class="alert alert-warning alert-dismissable" role="alert">
@@ -139,10 +138,9 @@
                           </button>
                           {{message}}
                     </div>
-                        {% endfor %} {% endif %}
-
-                    {% block body_block %}{% endblock %}                    
+                        {% endfor %} {% endif %}                                     
                 </div>
+                {% block body_block %}{% endblock %}   
             </section>
         </main>
             
