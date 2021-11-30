@@ -24,26 +24,241 @@
 {% endblock %}
 
 {% block body_block %}
-<div class="editor-container">
-    <div id="editor">//Real Code In Python
-def MoveForward(){// Dog Knight Move 1 Tile Forward}
-def Level1(){
+<script src="{% static 'ace/ace.js' %}" type="text/javascript" charset="utf-8"></script>
+<script src="{% static 'ace/ext-language_tools.js' %}" type="text/javascript" charset="utf-8"></script>
+
+<div class="row justify-content-center">
+    <div class="col-md-12 col-lg-12">
+        <!-- Tab Nav -->
+        <div class="nav-wrapper position-relative mb-4">
+            <ul class="nav nav-pills flex-column flex-sm-row" id="tabs-text" role="tablist">
+                <li class="nav-item mr-sm-3 mr-md-0">
+                    <a class="nav-link mb-sm-3 mb-md-0 active" id="tabs-text-1-tab" data-toggle="tab" href="#tabs-text-1" role="tab" aria-controls="tabs-text-1" aria-selected="true">IDE</a>
+                </li>
+                <li class="nav-item mr-sm-3 mr-md-0">
+                    <a class="nav-link mb-sm-3 mb-md-0" id="tabs-text-2-tab" data-toggle="tab" href="#tabs-text-2" role="tab" aria-controls="tabs-text-2" aria-selected="false">Level 1</a>
+                </li>
+                <li class="nav-item mr-sm-3 mr-md-0">
+                    <a class="nav-link mb-sm-3 mb-md-0" id="tabs-text-3-tab" data-toggle="tab" href="#tabs-text-3" role="tab" aria-controls="tabs-text-3" aria-selected="false">Level 2</a>
+                </li>
+                <li class="nav-item mr-sm-3 mr-md-0">
+                    <a class="nav-link mb-sm-3 mb-md-0" id="tabs-text-4-tab" data-toggle="tab" href="#tabs-text-4" role="tab" aria-controls="tabs-text-4" aria-selected="false">Level 3</a>
+                </li>
+                <li class="nav-item mr-sm-3 mr-md-0">
+                    <a class="nav-link mb-sm-3 mb-md-0" id="tabs-text-5-tab" data-toggle="tab" href="#tabs-text-5" role="tab" aria-controls="tabs-text-5" aria-selected="false">Level 4</a>
+                </li>
+                <li class="nav-item mr-sm-3 mr-md-0">
+                    <a class="nav-link mb-sm-3 mb-md-0" id="tabs-text-6-tab" data-toggle="tab" href="#tabs-text-6" role="tab" aria-controls="tabs-text-6" aria-selected="false">Level 5</a>
+                </li>
+                <li class="nav-item mr-sm-3 mr-md-0">
+                    <a class="nav-link mb-sm-3 mb-md-0" id="tabs-text-7-tab" data-toggle="tab" href="#tabs-text-7" role="tab" aria-controls="tabs-text-7" aria-selected="false">Level 6</a>
+                </li>
+                <li class="nav-item mr-sm-3 mr-md-0">
+                    <a class="nav-link mb-sm-3 mb-md-0" id="tabs-text-8-tab" data-toggle="tab" href="#tabs-text-8" role="tab" aria-controls="tabs-text-8" aria-selected="false">Level 7</a>
+                </li>
+                <li class="nav-item mr-sm-3 mr-md-0">
+                    <a class="nav-link mb-sm-3 mb-md-0" id="tabs-text-9-tab" data-toggle="tab" href="#tabs-text-9" role="tab" aria-controls="tabs-text-9" aria-selected="false">Level 8</a>
+                </li>
+                <li class="nav-item mr-sm-3 mr-md-0">
+                    <a class="nav-link mb-sm-3 mb-md-0" id="tabs-text-10-tab" data-toggle="tab" href="#tabs-text-10" role="tab" aria-controls="tabs-text-10" aria-selected="false">Basic Block</a>
+                </li>
+            </ul>
+        </div>
+        <!-- End of Tab Nav -->
+        <!-- Tab Content -->
+        <div class="card shadow-inset bg-primary border-light p-1 rounded">
+            <div class="card-body p-0">
+                <div class="tab-content" id="tabcontent1">  
+<!-- Real -->
+                    <div class="tab-pane fade show active" id="tabs-text-1" role="tabpanel" aria-labelledby="tabs-text-1-tab">
+                        <div class="row align-items-center ml-0">
+                            <pre id="code" class="ace_editor rounded" style="min-height:600px; width: 60%;">
+<textarea class="ace_text-input">//IDE
+def MoveForward():
+    // Dog Knight Move 1 Tile Forward
+def Level1():
     MoveForward();
     TurnLeft();
-}
+    TurnLeft();
+    TurnLeft();
+    int x;
+    print("");
+</textarea></pre>
+                            <img src="{% static 'img/solution/1.png' %}" class="rounded scale col-4 col-md-4 text-md-right">
+                        </div>
+                    </div>
+<!-- Level 1 -->
+                    <div class="tab-pane fade" id="tabs-text-2" role="tabpanel" aria-labelledby="tabs-text-2-tab">
+                        <div class="row align-items-center ml-0">
+                            <pre id="code1" class="ace_editor rounded" style="min-height:600px; width: 60%;">
+<textarea class="ace_text-input">//Level 1
+def MoveForward():
+    // Dog Knight Move 1 Tile Forward
+def Level1():
+    MoveForward();
+    TurnLeft();
+    TurnLeft();
+    TurnLeft();
+    int x;
+    print("");
+</textarea></pre>
+                            <img src="{% static 'img/solution/1.png' %}" class="rounded scale col-4 col-md-4 text-md-right">
+                        </div>
+                    </div>
+<!-- Level 2 -->
+                    <div class="tab-pane fade" id="tabs-text-3" role="tabpanel" aria-labelledby="tabs-text-3-tab">
+                        <div class="row align-items-center ml-0">
+                            <pre id="code2" class="ace_editor rounded" style="min-height:600px; width: 60%;">
+<textarea class="ace_text-input">//Level 2
+def MoveForward():
+    // Dog Knight Move 1 Tile Forward
+def Level1():
+    MoveForward();
+    TurnLeft();
+    TurnLeft();
+    TurnLeft();
+    int x;
+    print("");
+</textarea></pre>
+                            <img src="{% static 'img/solution/2.png' %}" class="rounded scale col-4 col-md-4 text-md-right">
+                        </div>
+                    </div>
+<!-- Level 3 -->
+                    <div class="tab-pane fade" id="tabs-text-4" role="tabpanel" aria-labelledby="tabs-text-4-tab">
+                        <div class="row align-items-center ml-0">
+                            <pre id="code3" class="ace_editor rounded" style="min-height:600px; width: 60%;">
+<textarea class="ace_text-input">//Level 3
+def MoveForward():
+    // Dog Knight Move 1 Tile Forward
+def Level1():
+    MoveForward();
+    TurnLeft();
+    TurnLeft();
+    TurnLeft();
+    int x;
+    print("");
+</textarea></pre>
+                            <img src="{% static 'img/solution/3.png' %}" class="rounded scale col-4 col-md-4 text-md-right">
+                        </div>
+                    </div>
+<!-- Level 4 -->
+                    <div class="tab-pane fade" id="tabs-text-5" role="tabpanel" aria-labelledby="tabs-text-5-tab">
+                        <div class="row align-items-center ml-0">
+                            <pre id="code4" class="ace_editor rounded" style="min-height:600px; width: 60%;">
+<textarea class="ace_text-input">//Level 4
+def MoveForward():
+    // Dog Knight Move 1 Tile Forward
+def Level1():
+    MoveForward();
+    TurnLeft();
+    TurnLeft();
+    TurnLeft();
+    int x;
+    print("");
+</textarea></pre>
+                            <img src="{% static 'img/solution/4.png' %}" class="rounded scale col-4 col-md-4 text-md-right">
+                        </div>
+                    </div>
+<!-- Level 5 -->
+                    <div class="tab-pane fade" id="tabs-text-6" role="tabpanel" aria-labelledby="tabs-text-6-tab">
+                        <div class="row align-items-center ml-0">
+                            <pre id="code5" class="ace_editor rounded" style="min-height:600px; width: 60%;">
+<textarea class="ace_text-input">//Level 5
+def MoveForward():
+    // Dog Knight Move 1 Tile Forward
+def Level1():
+    MoveForward();
+    TurnLeft();
+    TurnLeft();
+    TurnLeft();
+    int x;
+    print("");
+</textarea></pre>
+                            <img src="{% static 'img/solution/5.png' %}" class="rounded scale col-4 col-md-4 text-md-right">
+                        </div>
+                    </div>
+<!-- Level 6 -->
+                    <div class="tab-pane fade" id="tabs-text-7" role="tabpanel" aria-labelledby="tabs-text-7-tab">
+                        <div class="row align-items-center ml-0">
+                            <pre id="code6" class="ace_editor rounded" style="min-height:600px; width: 60%;">
+<textarea class="ace_text-input">//Level 6
+def MoveForward():
+    // Dog Knight Move 1 Tile Forward
+def Level1():
+    MoveForward();
+    TurnLeft();
+    TurnLeft();
+    TurnLeft();
+    int x;
+    print("");
+</textarea></pre>
+                            <img src="{% static 'img/solution/6.png' %}" class="rounded scale col-4 col-md-4 text-md-right">
+                        </div>
+                    </div>
+<!-- Level 7 -->
+                    <div class="tab-pane fade" id="tabs-text-8" role="tabpanel" aria-labelledby="tabs-text-8-tab">
+                        <div class="row align-items-center ml-0">
+                            <pre id="code7" class="ace_editor rounded" style="min-height:600px; width: 60%;">
+<textarea class="ace_text-input">//Level 7
+def MoveForward():
+    // Dog Knight Move 1 Tile Forward
+def Level1():
+    MoveForward();
+    TurnLeft();
+    TurnLeft();
+    TurnLeft();
+    int x;
+    print("");
+</textarea></pre>
+                            <img src="{% static 'img/solution/7.png' %}" class="rounded scale col-4 col-md-4 text-md-right">
+                        </div>
+                    </div>
+<!-- Level 8 -->
+                    <div class="tab-pane fade" id="tabs-text-9" role="tabpanel" aria-labelledby="tabs-text-9-tab">
+                        <div class="row align-items-center ml-0">
+                            <pre id="code8" class="ace_editor rounded" style="min-height:600px; width: 60%;">
+<textarea class="ace_text-input">//Level 8
+def MoveForward():
+    // Dog Knight Move 1 Tile Forward
+def Level1():
+    MoveForward();
+    TurnLeft();
+    TurnLeft();
+    TurnLeft();
+    int x;
+    print("");
+</textarea></pre>
+                            <img src="{% static 'img/solution/8.png' %}" class="rounded scale col-4 col-md-4 text-md-right">
+                        </div>
+                    </div>
+<!-- Blocks -->
+                    <div class="tab-pane fade" id="tabs-text-10" role="tabpanel" aria-labelledby="tabs-text-10-tab">
+                        <div class="row align-items-center ml-0">
+                            <pre id="code9" class="ace_editor rounded" style="min-height:600px; width: 60%;">
+<textarea class="ace_text-input">//Basic Blocks
+def MoveForward():
+    // Dog Knight Move 1 Tile Forward
+def Level1():
+    MoveForward();
+    TurnLeft();
+    TurnLeft();
+    TurnLeft();
+    int x;
+    print("");
+</textarea></pre>
+                            <img src="{% static 'img/solution/0.png' %}" class="rounded scale col-4 col-md-4 text-md-right">
+                        </div>
+                    </div>
 
+                </div>
+            </div>
+        </div>
+        <!-- End of Tab Content -->
     </div>
 </div>
 
-    
-<script src="{% static 'ace/ace.js' %}" type="text/javascript" charset="utf-8"></script>
+<script src="{% static 'js/ace_config.js' %}" type="text/javascript" charset="utf-8"></script>
 
-<script>
-    var editor = ace.edit('editor');
-    editor.setTheme("ace/theme/monokai");
-    editor.session.setMode("ace/mode/python");
-    editor.setReadOnly(true);
-    editor.resize();
-    editor.setValue();
-</script>
+
+
 {% endblock %}
