@@ -26,6 +26,7 @@
 {% block body_block %}
 <script src="{% static 'ace/ace.js' %}" type="text/javascript" charset="utf-8"></script>
 <script src="{% static 'ace/ext-language_tools.js' %}" type="text/javascript" charset="utf-8"></script>
+<script src="{% static 'ace/mode-javascript.js' %}" type="text/javascript" charset="utf-8"></script>
 
 <div class="row justify-content-center">
     <div class="col-md-12 col-lg-12">
@@ -74,17 +75,16 @@
                         <div class="row align-items-center ml-0">
                             <pre id="code" class="ace_editor rounded" style="min-height:600px; width: 60%;">
 <textarea class="ace_text-input">//IDE
-def MoveForward():
-    // Dog Knight Move 1 Tile Forward
-def Level1():
-    MoveForward();
-    TurnLeft();
-    TurnLeft();
-    TurnLeft();
-    int x;
-    print("");
+console.log("Hello World!")
 </textarea></pre>
-                            <img src="{% static 'img/solution/1.png' %}" class="rounded scale col-4 col-md-4 text-md-right">
+                            <div class="rounded shadow-soft border border-light ml-2 mr-1" style="min-height:600px; width: 38%;">
+                                <div class="col-md-12" style="height:540px; width: 100%; overflow: auto;">
+                                    <ul class="editor__console-logs"></ul>
+                                </div>
+                                <button type="button" class="editor__run btn btn-primary text-danger ml-2 mr-1" style="width: 47%;"><span class="fas fa-play mr-2"></span>Run</button>
+                                <button type="button" class="editor__reset btn btn-primary text-dark ml-0 mr-2" style="width: 47%;"><span class="fas fa-redo mr-2"></span>Reset</button>
+                            </div>
+                            
                         </div>
                     </div>
 <!-- Level 1 -->
