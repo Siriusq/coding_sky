@@ -1,15 +1,113 @@
-{% extends 'coding/base.html' %} 
+<!--
+
+=========================================================
+* Neumorphism UI - v1.0.0
+=========================================================
+
+* Product Page: https://themesberg.com/product/ui-kits/neumorphism-ui
+* Copyright 2020 Themesberg MIT LICENSE (https://www.themesberg.com/licensing#mit)
+
+* Coded by https://themesberg.com
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
 {% load crispy_forms_tags %}
-{% block body_block %}
+<html>
+    <head>
+        <title>Coding Sky - Coding Game For Beginners</title>
 
-<div class="container py-5">
-	<h1>Register</h1>
-	<form method="POST">
-		{% csrf_token %}
-		{{ register_form|crispy }}                    
-		<button class="btn btn-primary" type="submit">Register</button>
-	</form>
-	<p class="text-center">If you already have an account, <a href="{% url 'coding:login' %}">login</a> instead.</p>
-</div>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="title" content="Coding Sky">
+        <meta name="author" content="Kai">
 
-{% endblock %}
+        <!-- Favicon -->
+        <link rel="apple-touch-icon" sizes="120x120" href="{% static 'img/favicon/apple-touch-icon.png' %}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon/favicon-32x32.png' %}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon/favicon-16x16.png' %}">
+        <link rel="mask-icon" href="{% static 'img/favicon/safari-pinned-tab.svg' %}" color="#ffffff">
+        
+        <!-- Fontawesome -->
+        <link type="text/css" href="{% static 'vendor/@fortawesome/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+
+        <!-- Pixel CSS -->
+        <link type="text/css" href="{% static 'css/neumorphism.css' %}" rel="stylesheet">
+    </head>
+
+    <body>
+        <main>
+            <!-- Section -->
+            <section class="min-vh-100 d-flex bg-primary align-items-center">
+                <div class="container">
+					<div class="row justify-content-center">
+						<div class="col-8 col-md-6">
+							{% if messages %} {% for message in messages %}
+							<div class="alert alert-danger alert-dismissible shadow-soft fade show" role="alert" id="alert" style="position: absolute; top:auto; bottom: 1px;; left: 5px; right: 5px; z-index: 999;">
+								<span class="alert-inner--icon"><span class="fas fa-fire"></span></span>
+								<span class="alert-inner--text"><strong>Warning!</strong> {{message}}.</span>
+								<button type="button" class="close text-dark" data-dismiss="alert" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							{% endfor %} {% endif %}  
+						</div>
+					</div>
+
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-8 col-lg-6 justify-content-center">
+                            <div class="card bg-primary shadow-soft border-light p-4">
+                                <div class="card-header text-center pb-0">                                    
+                                    <h2 class="h2">Register</h2>  
+                                </div>
+                                <div class="card-body">
+                                    <form method="POST" class="mt-4">
+										{% csrf_token %}
+										{{ register_form|crispy }}                                        
+                                        <button type="submit" class="btn btn-block btn-primary">Register</button>
+                                    </form>
+                                
+                                    <div class="d-block d-sm-flex justify-content-center align-items-center mt-4">
+                                        <span class="font-weight-normal">
+                                            Already have an account?
+                                            <a href="{% url 'coding:login' %}" class="font-weight-bold">Login</a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- JS -->
+        <!-- Core -->
+        <script src="{% static 'vendor/jquery/dist/jquery.min.js' %}"></script>
+        <script src="{% static 'vendor/popper.js/dist/umd/popper.min.js' %}"></script>
+        <script src="{% static 'vendor/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'vendor/headroom.js/dist/headroom.min.js' %}"></script>
+
+		<script src="{% static 'js/alert_dismiss.js' %}"></script>
+
+        <!-- Vendor JS -->
+        <script src="{% static 'vendor/onscreen/dist/on-screen.umd.min.js' %}"></script>
+        <script src="{% static 'vendor/nouislider/distribute/nouislider.min.js' %}"></script>
+        <script src="{% static 'vendor/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js' %}"></script>
+        <script src="{% static 'vendor/waypoints/lib/jquery.waypoints.min.js' %}"></script>
+        <script src="{% static 'vendor/jarallax/dist/jarallax.min.js' %}"></script>
+        <script src="{% static 'vendor/jquery.counterup/jquery.counterup.min.js' %}"></script>
+        <script src="{% static 'vendor/jquery-countdown/dist/jquery.countdown.min.js' %}"></script>
+        <script src="{% static 'vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js' %}"></script>
+        <script src="{% static 'vendor/prismjs/prism.js' %}"></script>
+
+        <script async defer src="{% static 'js/buttons.js' %}"></script>
+
+        <!-- Neumorphism JS -->
+        <script src="{% static 'js/neumorphism.js' %}"></script>
+    </body>
+</html>

@@ -89,14 +89,16 @@
                             </li>
 
                             <li class="nav-item dropdown">
-                                <a href="#" class="nav-link" data-toggle="dropdown" >
+                                <a href="{% url 'coding:downloadPage' %}" class="nav-link" data-toggle="dropdown" >
                                     <span class="nav-link-inner-text">Download</span>
                                     <span class="fas fa-angle-down nav-link-arrow ml-2"></span>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="./html/pages/about.html">Windows</a></li>
-                                    <li><a class="dropdown-item" href="./html/pages/pricing.html">Linux</a></li>
-                                    <li><a class="dropdown-item" href="./html/pages/contact.html">MacOS</a></li>
+                                    <li><a class="dropdown-item" href="https://drive.google.com/file/d/1y2rQ00OkZHwIDLubmQBLxCYcbWNEUa15/view?usp=sharing">Windows</a></li>
+                                    <li><a class="dropdown-item" href="https://drive.google.com/file/d/1rEb4-Ka2vTd16-Q_GCcXRLeGV185P1b-/view?usp=sharing">Linux</a></li>
+                                    <li><a class="dropdown-item" href="https://drive.google.com/file/d/1zWazBspkumb2yQnK96rlIRQ5eNKww_YX/view?usp=sharing">MacOS</a></li>
+                                    <li><a class="dropdown-item" href="https://drive.google.com/file/d/1ZV97HOElOP0050ua2qxdp6U-VXwDw2Ey/view?usp=sharing">Android</a></li>
+                                    <li><a class="dropdown-item" href="https://drive.google.com/file/d/1OWxpGuif0T5MA1L6G6cGN_41LuZd3Euk/view?usp=sharing">iOS</a></li>
                                 </ul>
                             </li>
                             
@@ -132,15 +134,18 @@
                 <div class="container z-2">
                     <div class="container">
                         {% if messages %} {% for message in messages %}
-                        <div class="alert alert-warning alert-dismissable" role="alert">
-                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true"><sup>&times;</sup></span>
-                          </button>
-                          {{message}}
-                    </div>
-                        {% endfor %} {% endif %}                                     
+							<div class="sticky-top alert alert-info alert-dismissible shadow-soft fade show" role="alert" id="alert" style="position: absolute; top:auto; bottom:auto; left: 5px; right: 5px; z-index: 999;">
+								<span class="alert-inner--icon"><span class="fas fa-bell"></span></span>
+								<span class="alert-inner--text"><strong>Info: </strong> {{message}}.</span>
+								<button type="button" class="close text-dark" data-dismiss="alert" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+						{% endfor %} {% endif %}
+                    </div>                  
+                    {% block body_block %}{% endblock %}                  
                 </div>
-                {% block body_block %}{% endblock %}   
+                   
             </section>
         </main>
             
@@ -172,6 +177,8 @@
     <script src="{% static 'vendor/popper.js/dist/umd/popper.min.js' %}"></script>
     <script src="{% static 'vendor/bootstrap/dist/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'vendor/headroom.js/dist/headroom.min.js' %}"></script>
+
+    <script src="{% static 'js/alert_dismiss.js' %}"></script>
 
     <!-- Vendor JS -->
     <script src="{% static 'vendor/onscreen/dist/on-screen.umd.min.js' %}"></script>

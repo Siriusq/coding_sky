@@ -16,6 +16,7 @@ urlpatterns = [
     path('game/', gamePage,name='gamePage'),
     path('solution/', solutionPage,name='solutionPage'),
     path('about/', about,name='about'),
+    path('download/', downloadPage,name='downloadPage'),
     path('quizzes/', QuizListView.as_view(),name='quiz_index'),
     path('category/', CategoriesListView.as_view(),name='quiz_category_list_all'),
     path('progress/', QuizUserProgressView.as_view(),name='quiz_progress'),

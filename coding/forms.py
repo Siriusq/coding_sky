@@ -11,7 +11,29 @@ class QuestionForm(forms.Form):
         self.fields["answers"] = forms.ChoiceField(choices=choice_list, widget=RadioSelect)
 
 class NewUser(UserCreationForm):
-	email = forms.EmailField(required=True)
+	username = forms.CharField(
+		required=True,
+		label='Username',
+		widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Username', 'style': 'margin-bottom:20px'}),
+	)
+	email = forms.EmailField(
+		required=True,
+		label='Email Address',		
+		widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'example@company.com', 'style': 'margin-bottom:20px'}),
+	)
+
+	password1 = forms.CharField(
+		required=True,
+		label='Password',
+		help_text='<ul><li>Password can’t be too similar to personal information.</li><li>Password must contain at least 8 characters.</li><li>Password can’t be a commonly used password.</li><li>Password can’t be entirely numeric.</li></ul>',
+		widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password', 'id':'exampleConfirmPassword7'}),
+	)
+
+	password2 = forms.CharField(
+		required=True,
+		label='Confirm Password',
+		widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Enter the same password again', 'id':'exampleConfirmPassword7' , 'style': 'margin-bottom:25px'}),
+	)
 
 	class Meta:
 		model = User

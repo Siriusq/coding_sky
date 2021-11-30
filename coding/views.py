@@ -36,6 +36,10 @@ def about(request):
     response = render(request, 'coding/about.html')
     return response
 
+def downloadPage(request):
+    response = render(request, 'coding/download.html')
+    return response
+
 def register_user(request):
 	if request.method == "POST":
 		form = NewUser(request.POST)
