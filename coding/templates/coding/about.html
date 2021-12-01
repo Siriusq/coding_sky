@@ -6,5 +6,17 @@
 {% endblock %}
 
 {% block body_block %}
-About
+<div class="row align-items-center justify-content-around">
+    <div class="col-md-6 col-xl-6 mb-5">
+        <div class="card bg-primary shadow-soft border-light organic-radius p-3">
+            <img class="organic-radius img-fluid" src="{% static 'img/large/index.jpg' %}" alt="Photo by Julien BRION from Pexels">
+        </div>
+    </div>
+    <div class="col-md-6 col-xl-5 text-center text-md-left">
+        <h2 class="h1 mb-4">Coding Sky</h2>
+        <p class="lead">Coding Sky is a web application developed for beginners to learn basic programming knowledge.</p>
+        <p class="lead">The application is based on a <strong>Coding Game</strong> developed by Unity, where players can learn coding by playing the game and viewing the reference answers given, and can test their knowledge in the <strong>Quiz</strong> page.</p>
+        <img src="../../assets/img/signature.svg" alt="signature" class="mt-4" width="150">
+    </div>
+</div>
 {% endblock %}

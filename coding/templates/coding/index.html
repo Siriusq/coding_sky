@@ -7,24 +7,52 @@
 
 {% block body_block %}
 <div class="row justify-content-center text-center pt-6">
-    <div class="col-lg-8 col-xl-8">                            
-        <h1 class="display-2 mb-3">
-            Coding Sky
-        </h1>
-        <p class="lead px-md-6 mb-5">
-            Coding Sky is a web application developed for beginners to learn basic programming knowledge. 
-            The application is based on a <strong>Coding Game</strong> developed by Unity, where players can learn coding by playing the game and viewing the reference answers given, and can test their knowledge in the <strong>Quiz</strong> page.
-            <br>
-            For better user experience, please use a desktop or laptop to play the game.
-            <br>
-            If you want to use it offline, please download the corresponding version of the standalone game installation package.
+    <div class="col-lg-8 col-xl-8"> 
+        <h1 class="display-2 mb-3">Coding Sky</h1>                           
+        <p class="lead px-md-3 mb-3">
+            Coding Sky is a web application based on <strong>Coding Game</strong>, <strong>Javascript Online IDE</strong> and <strong>Quiz</strong> to help beginners learn the basics of programming
         </p>
         <div class="d-flex flex-column flex-wrap flex-md-row justify-content-md-center mb-5">
-            <a href="#" target="_blank" class="btn btn-primary mb-3 mb-lg-0 mr-3"><i class="fas fa-cloud-download-alt mr-2"></i> Download</a>
+            <a href="{% url 'coding:gamePage' %}" target="gamePage" class="btn btn-primary mb-3 mb-lg-0 mr-3 mt-3"><i class="fas fa-gamepad mr-2"></i> Start Playing</a>
+            <a href="https://github.com/Siriusq" target="GitHub" class="btn btn-primary mb-3 mb-lg-0 ml-3 mt-3"><i class="fas fa-code-branch mr-2"></i> GitHub</a>
         </div>
-        <a href="https://github.com/Siriusq" target="_blank" class="d-flex align-items-center justify-content-center flex-column">
-            <img src="{% static 'img/large/logo_transparent.png' %}" height="200" class="mb-3" alt="Coding Sky Logo">
-        </a>
+
+        <a class="d-flex align-items-center justify-content-center flex-column">
+            <img src="{% static 'img/large/logo1.svg' %}" height="80" class="mb-3" alt="Coding Sky Logo"> 
+            <span class="text-muted font-small">University of Glasgow Master Project</span>
+        </a>        
     </div>
 </div>
+
+<section class="section section-lg">            
+    <div class="row">
+        <div class="col-12 col-md-4">
+            <div class="icon-box text-center mb-5 mb-md-0">
+                <div class="icon icon-shape icon-lg bg-soft shadow-soft border border-light rounded-circle mb-3">
+                    <span class="fas fa-chess-rook"></span>
+                </div>
+                <h2 class="h5 my-3">Serious Coding Game</h2>
+                <p class="px-lg-4">Funny 3D adventure game, developed by Unity</p>
+            </div>
+        </div>
+        <div class="col-12 col-md-4 mb-5 mb-md-0">
+            <div class="icon-box text-center">
+                <div class="icon icon-shape icon-lg bg-soft shadow-soft border border-light rounded-circle mb-3">
+                    <span class="fas fa-code"></span>
+                </div>
+                <h2 class="h5 my-3">Javascript Online IDE</h2>
+                <p class="px-lg-4">Using javascript to do real programming</p>
+            </div>
+        </div>
+        <div class="col-12 col-md-4 mb-5 mb-md-0">
+            <div class="icon-box text-center">
+                <div class="icon icon-shape icon-lg bg-soft shadow-soft border border-light rounded-circle mb-3">
+                    <span class="far fa-file-alt"></span>
+                </div>
+                <h2 class="h5 my-3">Quiz And Records</h2>
+                <p class="px-lg-4">Take the quiz to check your learning results!</p>
+            </div>
+        </div>
+    </div>            
+</section>
 {% endblock %}

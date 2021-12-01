@@ -28,9 +28,7 @@
         <meta name="title" content="Coding Sky">
         <meta name="author" content="Kai">
 
-        <!-- CSS only
-        <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">-->
+        <link href="{% static 'css/back_top.css' %}" rel="stylesheet">
        
         <!-- Favicon -->
         <link rel="apple-touch-icon" sizes="120x120" href="{% static 'img/favicon/apple-touch-icon.png' %}">
@@ -113,7 +111,10 @@
                     
                     <div class="d-flex align-items-center">
                         {% if user.is_authenticated %}
-                            <a class="btn btn-primary d-none d-md-inline-block mr-3" href="#"><i class="fas fa-user-alt"></i> Welcome {{user.username}}</a>                            
+                            <a class="btn btn-primary d-none d-md-inline-block mr-3 totop" href="#">
+                                <span class="normaluser"><i class="fas fa-user-alt"></i> Welcome {{user.username}}</span>
+                                <span class="backtotop"></span>
+                            </a>                            
                             <a class="btn btn-primary d-none d-md-inline-block mr-0" href="{% url 'coding:logout' %}"><i class="fas fa-sign-out-alt"></i> Logout</a>                               
                         {% else %}                                    
                             <a class="btn btn-primary d-none d-md-inline-block mr-3" href="{% url 'coding:register' %}"><i class="fas fa-user-plus"></i> Sign Up</a>                            
@@ -130,7 +131,7 @@
         <br>
 
         <main>
-            <section class="section section bg-soft pb-5 overflow-hidden z-2">
+            <section class="section section bg-soft pb-0 overflow-hidden z-2">
                 <div class="container z-2">
                     <div class="container">
                         {% if messages %} {% for message in messages %}
