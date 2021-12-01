@@ -1,3 +1,3 @@
 .totop             { height: auto; }
 .totop:hover .normaluser{ display: none; }
-.totop:hover .backtotop::before { content:'Back to top'; }
+.totop:hover .backtotop::before { content: 'Click To Go Back To top'; }

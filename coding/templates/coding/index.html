@@ -14,7 +14,11 @@
         </p>
         <div class="d-flex flex-column flex-wrap flex-md-row justify-content-md-center mb-5">
             <a href="{% url 'coding:gamePage' %}" target="gamePage" class="btn btn-primary mb-3 mb-lg-0 mr-3 mt-3"><i class="fas fa-gamepad mr-2"></i> Start Playing</a>
-            <a href="https://github.com/Siriusq" target="GitHub" class="btn btn-primary mb-3 mb-lg-0 ml-3 mt-3"><i class="fas fa-code-branch mr-2"></i> GitHub</a>
+            {% if user.is_authenticated %}
+                <a href="https://github.com/Siriusq" target="GitHub" class="btn btn-primary mb-3 mb-lg-0 ml-3 mt-3"><i class="fas fa-code-branch mr-2"></i> GitHub</a>
+            {% else %}
+                <a href="{% url 'coding:login' %}" target="Login" class="btn btn-primary mb-3 mb-lg-0 ml-3 mt-3"><i class="fas fa-sign-in-alt mr-2"></i> Login to discover more</a>
+            {% endif %}
         </div>
 
         <a class="d-flex align-items-center justify-content-center flex-column">
