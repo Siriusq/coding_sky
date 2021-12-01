@@ -4,41 +4,64 @@
 {% block title %}{% trans "All Quizzes" %}{% endblock %}
 
 {% block body_block %}
-<h2>{% trans "List of quizzes" %}</h2>
-    {% if quiz_list %}
-		<table class="table table-hover shadow-inset rounded">
+<div class="row">
+    <div class="col-12">
+        <div class="card bg-primary shadow-soft border-light mb-5">
+            <div class="card-header pb-0">
+				<h2>{% trans "List of quizzes" %}</h2>
+			</div>
 
-		  <thead>
-			<tr>
-			  <th>{% trans "Title" %}</th>
-			  <th>{% trans "Category" %}</th>
-			  <th>{% trans "Exam" %}</th>
-			  <th>{% trans "Single attempt" %}</th>
-			  <th></th>
-			</tr>
-		  </thead>
+			<div class="card-body pt-2 px-0 px-lg-4">
+			{% if quiz_list %}
+				<table class="table table-hover shadow-inset rounded">
 
-		  <tbody>
+				<thead>
+					<tr>
+					<th>{% trans "Title" %}</th>
+					<th>{% trans "Category" %}</th>
+					<th>{% trans "Exam" %}</th>
+					<th>{% trans "Single attempt" %}</th>
+					<th></th>
+					</tr>
+				</thead>
 
-        {% for quiz in quiz_list %}
+				<tbody>
 
-  			<tr>
-			  <td class="align-middle">{{ quiz.title }}</td>
-			  <td class="align-middle">{{ quiz.category }}</td>
-			  <td class="align-middle">{{ quiz.exam_paper }}</td>
-			  <td class="align-middle">{{ quiz.single_attempt }}</td>
-			  <td class="align-middle">
-				<a href="{% url 'coding:quiz_start_page' slug=quiz.url %}" class='btn btn-primary btn-sm mb-0 mt-0'>
-				  {% trans "Attempt Quiz" %}
-				</a>
-			</tr>
+				{% for quiz in quiz_list %}
 
-        {% endfor %}
-		  </tbody>
+					<tr>
+					<td class="align-middle">{{ quiz.title }}</td>
+					<td class="align-middle">{{ quiz.category }}</td>
+					<td class="align-middle">{{ quiz.exam_paper }}</td>
+					<td class="align-middle">{{ quiz.single_attempt }}</td>
+					<td class="align-middle">
+						<a href="{% url 'coding:quiz_start_page' slug=quiz.url %}" class='btn btn-primary btn-sm mb-0 mt-0 animate-down-1'>
+						{% trans "Attempt Quiz" %}
+						</a>
+					</tr>
 
-		</table>
+				{% endfor %}
+				</tbody>
 
-	{% else %}
-        <p>{% trans "There are no available quizzes" %}.</p>
-    {% endif %}
+				</table>
+
+			{% else %}
+				<div class="col-12 col-md-10">
+					<div class="alert alert-danger shadow-inset" role="alert">
+						<span class="alert-inner--icon icon-lg">
+							<span class="fas fa-fire"></span>
+						</span> 
+						<span class="alert-heading">OOOPS!</span>
+						<p>{% trans "There are no available quizzes" %}.</p>
+						<hr>
+						<p class="mb-0">Please contact the administrator to add quiz!</p>
+					</div>
+				</div>
+			{% endif %}
+
+			</div>
+		</div>
+	</div>
+</div>
+    
 {% endblock %}

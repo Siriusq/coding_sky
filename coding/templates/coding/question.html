@@ -2,85 +2,89 @@
 {% load i18n%}
 
 
-
-{% block title %} {{ quiz.title }} {% endblock %}
-{% block description %} {{ quiz.title }} - {{ quiz.description }} {% endblock %}
-
 {% block body_block %}
+<div class="row">
+    <div class="col-12">
+        <div class="card bg-primary shadow-soft border-light mb-5">
+            <div class="card-header pb-0">
+				<h2 class="h2 mb-5 text-center">{{ quiz.title }}</h2>
+				{% if question %}
+					{% if progress %}
+						<div style="float: right;">
+							<h2 class="h5 mb-4">{% trans "Question" %} {{ progress.0|add:1 }} {% trans "of" %} {{ progress.1 }}</h2>
+						</div>
+					{% endif %}
+					<h2 class="h5 mb-4">
+						{% trans "Question category" %}: 
+						<strong>{{ question.category }}</strong>
+					</h2>
+				{% endif %}                
+            </div>		
+
+            <div class="card-body pt-2 px-0 px-lg-4">
+				{% if question %}				
+				<p class="lead mb-3">{{ question.content }}</p>
+				{% if question.figure %}
+					<img src="{{ question.figure.url }}" alt="{{ question.content }}" />
+				{% endif %}
+				<form action="" method="POST">{% csrf_token %}
+				<input type=hidden name="question_id" value="{{ question.id }}">
+
+				<ul class="list-group shadow-inset rounded">
+					{% for answer in form.answers %}
+					<li class="list-group-item">
+						{{ answer }}
+					</li>
+					{% endfor %}
+				</ul>
+					{% if progress.0|add:1 == progress.1 %}
+						<input type="submit" value={% trans "Submit" %} class="btn btn-large btn-block btn-primary text-info mt-4 animate-down-1" >
+					{% else %}
+						<input type="submit" value={% trans "Next" %} class="btn btn-large btn-block btn-primary text-info mt-4 animate-down-1" >
+					{% endif %}
+				</form>
+				{% endif %}				
+            </div>
+        </div>
+    </div>
+</div>
 
 {% if previous.answers %}
+<div class="row">
+    <div class="col-12">
+        <div class="card bg-primary shadow-soft border-light mb-5">
+            <div class="card-header pb-0">
+					<h2 class="h5 mb-4">
+						{% trans "The previous question" %}:  
+						{{ previous.previous_question }}
+					</h2>          
+            </div>		
 
-  <p class="muted"><small>{% trans "The previous question" %}:</small></p>
-  <p>{{ previous.previous_question }}</p>
+            <div class="card-body pt-2 px-0 px-lg-4">
+			{% if previous.previous_outcome %}
+				<div class="alert alert-success shadow-inset" role="alert">
+					<span class="far fa-thumbs-up mr-2"></span>
+			{% else %}
+				<div class="alert alert-warning shadow-inset" role="alert">
+					<span class="fas fa-fire"></span>
+			{% endif %}
+					<span class="alert-inner--text">
+						{% trans "Your answer was" %}
+						<strong> {{ previous.previous_outcome|yesno:"correct,incorrect" }} </strong>
+					</span>					
+				</div>
 
-  {% if previous.previous_outcome %}
-	<div class="alert alert-success">
-  {% else %}
-	<div class="alert alert-warning">
-  {% endif %}
-  	  <p><small>
-		{% trans "Your answer was" %} </small>
-		<strong>
-		  {{ previous.previous_outcome|yesno:"correct,incorrect" }}
-		</strong>
-	  </p>
+				{% include 'coding/correct_answer.html' %}
 
-	</div>
-
-	{% include 'coding/correct_answer.html' %}
-
-	<p><strong>{% trans "Explanation" %}:</strong></p>
-	<div class="well " style="background-color: #fcf8e3;">
-	  <p>{{ previous.previous_question.explanation }}</p>
-	</div>
-
-	<hr>
-
-{% endif %}
-
-<br />
-
-{% if question %}
-
-{% if progress %}
-<div style="float: right;">
-{% trans "Question" %} {{ progress.0|add:1 }} {% trans "of" %} {{ progress.1 }}
+				<p class="lead mt-4"><strong>{% trans "Explanation" %}:</strong></p>
+				<div class="breadcrumb breadcrumb-info" style="color: #0056B3;">
+					{{ previous.previous_question.explanation }}
+				</div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endif %}
-
-<p>
-  <small class="muted">{% trans "Question category" %}:</small>
-  <strong>{{ question.category }}</strong>
-</p>
-
-<p class="lead">{{ question.content }}</p>
-
-{% if question.figure %}
-    <img src="{{ question.figure.url }}" alt="{{ question.content }}" />
-{% endif %}
-
-<form action="" method="POST">{% csrf_token %}
-  <input type=hidden name="question_id" value="{{ question.id }}">
-
-  <ul class="list-group">
-
-	{% for answer in form.answers %}
-	  <li class="list-group-item">
-	    {{ answer }}
-	  </li>
-	{% endfor %}
-
-  </ul>
-    {% if progress.0|add:1 == progress.1 %}
-    <input type="submit" value={% trans "Submit" %} class="btn btn-large btn-block btn-warning" >
-    {% else %}
-        <input type="submit" value={% trans "Next" %} class="btn btn-large btn-block btn-warning" >
-    {% endif %}
-</form>
-
-{% endif %}
-
-<hr>
 
 
 {% endblock %}

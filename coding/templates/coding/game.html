@@ -23,26 +23,22 @@
     </div>
     
     <div>
-        <button type="button" class="btn btn-primary btn-sm mr-0 mb-2 mt-2 float-right" data-toggle="tooltip" data-placement="left" title="Click Or Press F" onclick="myGameInstance.SetFullscreen(1)">
+        <button type="button" class="btn btn-primary btn-sm mr-0 mb-2 mt-2 float-right animate-down-2" data-toggle="tooltip" data-placement="left" title="Click Or Press F" onclick="myGameInstance.SetFullscreen(1)">
             FullScreen
             <span class="mr-1"><span class="fas fa-expand"></span></span>
         </button>    
 
-        <button type="button" class="btn btn-primary btn-sm mr-0 mb-2 mt-2 float-left" data-toggle="tooltip" data-placement="top" title="Click To Show Or Hide" onclick="ShowImage()">
+        <button type="button" class="btn btn-primary btn-sm mr-0 mb-2 mt-2 float-left animate-down-2" data-toggle="tooltip" data-placement="top" title="Click To Show Or Hide" onclick="ShowImage()">
+            <span class="ml-1"><span class="fas fa-align-justify"></span></span>
             Hint
-            <span class="mr-1"><span class="fas fa-align-justify"></span></span>
         </button>
     </div>
 
     <div class="row justify-content-center">
-        <div class="card-body mr-0 mt-1 float-left px-4 py-1">
+        <div class="card-body mr-0 mt-1 mb-10 float-left px-4 py-1">
             <img src="{% static 'img/solution/holder.png' %}" id="getImage" style="display: none;" class="shadow-soft rounded scale">
         </div>   
-    </div>
-    
-    
-
-    
+    </div>    
 </div>
 
     <script src="{% static 'unity/MyLoader.js' %}"></script>

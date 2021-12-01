@@ -110,14 +110,14 @@
                     
                     <div class="d-flex align-items-center">
                         {% if user.is_authenticated %}
-                            <a class="btn btn-primary d-none d-md-inline-block mr-3 totop" href="#">
+                            <a class="btn btn-primary d-none d-md-inline-block mr-3 totop animate-down-2" href="#">
                                 <span class="normaluser"><i class="fas fa-user-alt"></i> Welcome {{user.username}}</span>
                                 <span class="backtotop"></span>
                             </a>                            
-                            <a class="btn btn-primary d-none d-md-inline-block mr-0" href="{% url 'coding:logout' %}"><i class="fas fa-sign-out-alt"></i> Logout</a>                               
+                            <a class="btn btn-primary d-none d-md-inline-block mr-0 animate-down-2" href="{% url 'coding:logout' %}"><i class="fas fa-sign-out-alt"></i> Logout</a>                               
                         {% else %}                                    
-                            <a class="btn btn-primary d-none d-md-inline-block mr-3" href="{% url 'coding:register' %}"><i class="fas fa-user-plus"></i> Sign Up</a>                            
-                            <a class="btn btn-primary d-none d-md-inline-block mr-0" href="{% url 'coding:login' %}"><i class="fas fa-sign-in-alt"></i> Login</a>                                                       
+                            <a class="btn btn-primary d-none d-md-inline-block mr-3 animate-down-2" href="{% url 'coding:register' %}"><i class="fas fa-user-plus"></i> Sign Up</a>                            
+                            <a class="btn btn-primary d-none d-md-inline-block mr-0 animate-down-2" href="{% url 'coding:login' %}"><i class="fas fa-sign-in-alt"></i> Login</a>                                                       
                         {% endif %}                        
 
                         <button class="navbar-toggler ml-2" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">

@@ -8,92 +8,116 @@
 
 {% block body_block %}
 
-  {% if previous.answers %}
+{% if previous.answers %}
+<div class="row">
+  <div class="col-12">
+      <div class="card bg-primary shadow-soft border-light mb-4">
+          <div class="card-header pb-0">
+            <h2 class="h5 mb-4">
+              {% trans "The previous question" %}:  
+              {{ previous.previous_question }}
+            </h2>          
+          </div>		
 
-  <p class="muted"><small>{% trans "The previous question" %}:</small></p>
-  <p>{{ previous.previous_question }}</p>
-  <p>Your answer was
-	<strong>
-	  {{ previous.previous_outcome|yesno:"correct,incorrect" }}
-	</strong>
-  </p>
-  {% include 'coding/correct_answer.html' %}
-  <p><strong>{% trans "Explanation" %}:</strong></p>
-  <div class="well " style="background-color: #fcf8e3;">
-    <p>{{ previous.previous_question.explanation }}</p>
+          <div class="card-body pt-2 px-0 px-lg-4">
+          {% if previous.previous_outcome %}
+				    <div class="alert alert-success shadow-inset" role="alert">
+					    <span class="far fa-thumbs-up mr-2"></span>
+		    	{% else %}
+            <div class="alert alert-warning shadow-inset" role="alert">
+              <span class="fas fa-fire"></span>
+          {% endif %}
+              <span class="alert-inner--text">
+                {% trans "Your answer was" %}
+						    <strong> {{ previous.previous_outcome|yesno:"correct,incorrect" }} </strong>
+					    </span>					
+				    </div>
+
+              {% include 'coding/correct_answer.html' %}
+
+              <p class="lead mt-4"><strong>{% trans "Explanation" %}:</strong></p>
+              <div class="breadcrumb breadcrumb-info" style="color: #0056B3;">
+                {{ previous.previous_question.explanation }}
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% if max_score %}
+<div class="row">
+  <div class="col-12">
+    <div class="card bg-primary shadow-soft border-light mb-5 mt-3">
+      <div class="card-header pb-0">
+        <h2 class="h2 mb-5 text-center">{% trans "Exam results" %}</h2>
+
+        <div style="float: right;">
+          <h2 class="h5 mb-4">{% trans "Exam title" %}: {{ quiz.title }}</h2>
+        </div>
+        <h2 class="h5 mb-4">
+          {% trans "You answered" %} <strong>{{ score }}</strong> {% trans "questions correctly out of" %} <strong>{{ max_score }}</strong>, {% trans "giving you" %} <strong>{{ percent }}</strong> {% trans "percent correct" %}
+        </h2>          
+      </div>
+
+      <div class="card-body pt-2 px-0 px-lg-4">
+        {% if quiz.pass_mark %}
+        <div class="alert alert-info shadow-inset" role="alert">
+          <span class="far fa-bell mr-2"></span>
+          <span class="alert-inner--text">
+            {{ sitting.result_message }}
+          </span>
+        </div>    
+        {% endif %}
+
+        <p class="lead mt-4">{% trans "Review the questions and try the exam again in the future"%}.</p>
+
+        {% if user.is_authenticated %}
+          <p class="lead">{% trans "The result of this exam will be stored in your progress section so you can review and monitor your progression" %}.</p>
+        {% endif %}
+      </div>
+    </div>
   </div>
-  <hr>
+</div>
+{% endif %}
 
-  {% endif %}
+{% if possible %}
+<div class="alert alert-info shadow-inset" role="alert">
+  <span class="far fa-bell mr-2"></span>
+  <span class="alert-inner--text">
+      {% trans "Your session score is" %} {{ session }} {% trans "out of a possible" %} {{ possible }}
+  </span>
+</div>    
+{% endif %}
 
-  {% if max_score %}
+{% if questions %}
+{% for question in questions %}
+<div class="row">
+  <div class="col-12">
+    <div class="card bg-primary shadow-soft border-light mb-5">
+      <div class="card-header pb-0">
+        <h2 class="h5 mb-4">{{ question.content }}</h2>
+      </div>
 
-  <div>
-	<h2>{% trans "Exam results" %}</h2>
-	<p>
-	  <small class="muted">{% trans "Exam title" %}: </small>
-	  <strong>{{ quiz.title }}</strong></p>
+      <div class="card-body pt-2 px-0 px-lg-4">
+        {% correct_answer_for_all question %}
 
-	<p class="lead">
-	  {% trans "You answered" %} {{ score }} {% trans "questions correctly out of" %} {{ max_score }}, {% trans "giving you" %} {{ percent }} {% trans "percent correct" %}
-	</p>
+        {% if question.user_answer %}
+          <p class="lead mt-4"><strong>{% trans "Your answer" %}: </strong></p>
+          <div class="breadcrumb breadcrumb-info" style="color: #1E90FF;">
+            {{ question|answer_choice_to_string:question.user_answer }}
+          </div>
+        {% endif %}
 
-	{% if quiz.pass_mark %}
-	<hr>
-        <p class="lead">{{ sitting.result_message }}</p>
-	<hr>
-
-	{% endif %}
-
-	<p>{% trans "Review the questions below and try the exam again in the future"%}.</p>
-
-	{% if user.is_authenticated %}
-
-	  <p>{% trans "The result of this exam will be stored in your progress section so you can review and monitor your progression" %}.</p>
-
-	{% endif %}
+        <p class="lead mt-4"><strong>{% trans "Explanation" %}:</strong></p>
+        <div class="breadcrumb breadcrumb-info" style="color: #0056B3;">
+          {{ previous.previous_question.explanation }}
+        </div>
+      </div>
+    </div>
   </div>
-
-
-  {% endif %}
-
-
-  <hr>
-
-  {% if possible %}
-
-  <p class="lead">
-	{% trans "Your session score is" %} {{ session }} {% trans "out of a possible" %} {{ possible }}
-  </p>
-
-  <hr>
-
-  {% endif %}
-
-  {% if questions %}
-
-    {% for question in questions %}
-
-      <p class="lead">
-		{{ question.content }}
-	  </p>
-
-	  {% correct_answer_for_all question %}
-
-      {% if question.user_answer %}
-      <p>{% trans "Your answer" %}: {{ question|answer_choice_to_string:question.user_answer }}</p>
-      {% endif %}
-
-	  <p><strong>{% trans "Explanation" %}:</strong></p>
-	  <div class="well " style="background-color: #fcf8e3;">
-		<p>{{ question.explanation|safe }}</p>
-	  </div>
-
-	  <hr>
-
-  {% endfor %}
-
-  {% endif %}
-
+</div>
+{% endfor %}
+{% endif %}
 
 {% endblock %}

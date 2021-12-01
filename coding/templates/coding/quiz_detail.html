@@ -26,10 +26,14 @@
                         {{ quiz.description }}
                       </p>
                   </div>
-                  <div class="col-md-4 mt-4 mt-md-0 text-md-right">
-                    <a class="btn btn-lg text-info btn-primary" href="{% url 'coding:quiz_question' quiz_name=quiz.url %}">
+                  <div class="col-md-4 mt-4 mt-md-0 text-md-right btn-group-vertical">
+                    <a class="btn btn-lg text-info btn-primary mb-3 animate-down-1" href="{% url 'coding:quiz_question' quiz_name=quiz.url %}">
                       <span class="fas fa-hourglass-start mr-2"></span>
                       {% trans "Start quiz" %}
+                    </a>
+                    <a class="btn btn-lg text-danger btn-primary animate-down-1" href="{% url 'coding:quiz_index' %}">
+                      <span class="fas fa-arrow-left mr-2"></span>
+                      {% trans "Back" %}
                     </a>
                   </div>
               </div>
