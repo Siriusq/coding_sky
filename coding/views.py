@@ -90,6 +90,9 @@ class QuizMarkerMixin(object):
     @method_decorator(login_required)
     @method_decorator(permission_required('quiz.view_sittings'))
     def dispatch(self, *args, **kwargs):
+        if not self.request.user.is_authenticated:
+            messages.warning(self.request, "Access denied! Please login first!")
+            return redirect("index")
         return super(QuizMarkerMixin, self).dispatch(*args, **kwargs)
 
 
@@ -118,6 +121,10 @@ class QuizDetailView(DetailView):
     def get(self, request, *args, **kwargs):
         self.object = self.get_object()
 
+        if not request.user.is_authenticated:
+            messages.warning(request, "Access denied! Please login first!")
+            return redirect("index")
+
         if self.object.draft and not request.user.has_perm('quiz.change_quiz'):
             raise PermissionDenied
 
@@ -139,6 +146,10 @@ class ViewQuizListByCategory(ListView):
             category=self.kwargs['category_name']
         )
 
+        if not request.user.is_authenticated:
+            messages.warning(request, "Access denied! Please login first!")
+            return redirect("index")
+
         return super(ViewQuizListByCategory, self).\
             dispatch(request, *args, **kwargs)
 
@@ -147,6 +158,11 @@ class ViewQuizListByCategory(ListView):
             .get_context_data(**kwargs)
 
         context['category'] = self.category
+
+        if not self.request.user.is_authenticated:
+            messages.warning(self.request, "Access denied! Please login first!")
+            return redirect("index")
+
         return context
 
     def get_queryset(self):
@@ -159,10 +175,18 @@ class QuizUserProgressView(TemplateView):
 
     @method_decorator(login_required)
     def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            messages.warning(request, "Access denied! Please login first!")
+            return redirect("index")
+
         return super(QuizUserProgressView, self)\
             .dispatch(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
+        if not self.request.user.is_authenticated:
+            messages.warning(self.request, "Access denied! Please login first!")
+            return redirect("index")
+
         context = super(QuizUserProgressView, self).get_context_data(**kwargs)
         progress, c = Progress.objects.get_or_create(user=self.request.user)
         context['cat_scores'] = progress.list_all_cat_scores
@@ -191,6 +215,10 @@ class QuizMarkingDetail(QuizMarkerMixin, DetailView):
     model = Sitting
 
     def post(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            messages.warning(request, "Access denied! Please login first!")
+            return redirect("index")
+
         sitting = self.get_object()
 
         q_to_toggle = request.POST.get('qid', None)
@@ -204,6 +232,10 @@ class QuizMarkingDetail(QuizMarkerMixin, DetailView):
         return self.get(request)
 
     def get_context_data(self, **kwargs):
+        if not self.request.user.is_authenticated:
+            messages.warning(self.request, "Access denied! Please login first!")
+            return redirect("index")
+
         context = super(QuizMarkingDetail, self).get_context_data(**kwargs)
         context['questions'] =\
             context['sitting'].get_questions(with_answers=True)
@@ -215,6 +247,10 @@ class QuizTake(FormView):
     template_name = 'coding/question.html'
 
     def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            messages.warning(request, "Access denied! Please login first!")
+            return redirect("index")
+
         self.quiz = get_object_or_404(Quiz, url=self.kwargs['quiz_name'])
         if self.quiz.draft and not request.user.has_perm('quiz.change_quiz'):
             raise PermissionDenied
@@ -230,17 +266,29 @@ class QuizTake(FormView):
         return super(QuizTake, self).dispatch(request, *args, **kwargs)
 
     def get_form(self, form_class=QuestionForm):
+        if not self.request.user.is_authenticated:
+            messages.warning(self.request, "Access denied! Please login first!")
+            return redirect("index")
+
         if self.logged_in_user:
             self.question = self.sitting.get_first_question()
             self.progress = self.sitting.progress()
         return form_class(**self.get_form_kwargs())
 
     def get_form_kwargs(self):
+        if not self.request.user.is_authenticated:
+            messages.warning(self.request, "Access denied! Please login first!")
+            return redirect("index")
+
         kwargs = super(QuizTake, self).get_form_kwargs()
 
         return dict(kwargs, question=self.question)
 
     def form_valid(self, form):
+        if not self.request.user.is_authenticated:
+            messages.warning(self.request, "Access denied! Please login first!")
+            return redirect("index")
+
         if self.logged_in_user:
             self.form_valid_user(form)
             if self.sitting.get_first_question() is False:
@@ -250,6 +298,10 @@ class QuizTake(FormView):
         return super(QuizTake, self).get(self, self.request)
 
     def get_context_data(self, **kwargs):
+        if not self.request.user.is_authenticated:
+            messages.warning(self.request, "Access denied! Please login first!")
+            return redirect("index")
+
         context = super(QuizTake, self).get_context_data(**kwargs)
         context['question'] = self.question
         context['quiz'] = self.quiz
@@ -260,6 +312,10 @@ class QuizTake(FormView):
         return context
 
     def form_valid_user(self, form):
+        if not self.request.user.is_authenticated:
+            messages.warning(self.request, "Access denied! Please login first!")
+            return redirect("index")
+
         progress, c = Progress.objects.get_or_create(user=self.request.user)
         guess = form.cleaned_data['answers']
         is_correct = self.question.check_if_correct(guess)
@@ -285,6 +341,10 @@ class QuizTake(FormView):
         self.sitting.remove_first_question()
 
     def final_result_user(self):
+        if not self.request.user.is_authenticated:
+            messages.warning(self.request, "Access denied! Please login first!")
+            return redirect("index")
+
         results = {
             'quiz': self.quiz,
             'score': self.sitting.get_current_score,
