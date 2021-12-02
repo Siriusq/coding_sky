@@ -36,7 +36,7 @@
 
     <div class="row justify-content-center">
         <div class="card-body mr-0 mt-1 mb-10 float-left px-4 py-1">
-            <img src="{% static 'img/solution/holder.png' %}" id="getImage" style="display: none;" class="shadow-soft rounded scale">
+            <img src="{% static 'img/solution/holder.png' %}" id="getImage" style="display: none; max-height: 500px;" class="shadow-soft rounded scale">
         </div>   
     </div>    
 </div>
@@ -46,13 +46,13 @@
     <script>
         var imageIndex;
         createUnityInstance(document.querySelector("#unity-canvas"), {
-        dataUrl: "{% static 'unity/Build/2.4.data' %}",
-        frameworkUrl: "{% static 'unity/Build/2.4.framework.js' %}",
-        codeUrl: "{% static 'unity/Build/2.4.wasm' %}",
+        dataUrl: "{% static 'unity/Build/3.0.data' %}",
+        frameworkUrl: "{% static 'unity/Build/3.0.framework.js' %}",
+        codeUrl: "{% static 'unity/Build/3.0.wasm' %}",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Sirius",
         productName: "CodingSky",
-        productVersion: "2.3",
+        productVersion: "3.0",
         }).then((unityInstance) => {
         myGameInstance = unityInstance;
         });

@@ -29,7 +29,7 @@
 <script src="{% static 'ace/mode-javascript.js' %}" type="text/javascript" charset="utf-8"></script>
 
 <div class="row justify-content-center">
-    <div class="col-md-12 col-lg-12">
+    <div class="col-12">
         <!-- Tab Nav -->
         <div class="nav-wrapper position-relative mb-4">
             <ul class="nav nav-pills flex-column flex-sm-row" id="tabs-text" role="tablist">
@@ -72,181 +72,427 @@
                 <div class="tab-content" id="tabcontent1">  
 <!-- Real -->
                     <div class="tab-pane fade show active" id="tabs-text-1" role="tabpanel" aria-labelledby="tabs-text-1-tab">
-                        <div class="row align-items-center ml-0">
-                            <pre id="code" class="ace_editor rounded" style="min-height:600px; width: 60%;">
+                        <div class="row col-12" style="padding-right: 0px; padding-left: 15px; margin-left: 0px; padding-left: 0px;">
+                            <pre id="code" class="ace_editor rounded col-8" style="min-height:max-content; width: auto;">
 <textarea class="ace_text-input">//IDE
 console.log("Hello World!")
 </textarea></pre>
-                            <div class="rounded shadow-soft border border-light ml-2 mr-1" style="min-height:600px; width: 38%;">
-                                <div class="col-md-12" style="height:540px; width: 100%; overflow: auto;">
-                                    <ul class="editor__console-logs"></ul>
+                            <div class="col-4" >
+                                <div class="rounded shadow-soft border border-light ml-2 mr-1" style="min-height:600px; width: auto;">
+                                    <div class="col-12" style="height:540px; width: auto; overflow: auto;" style="margin-left: 0px; margin-right: 0px;">
+                                        <ul class="editor__console-logs"></ul>
+                                    </div>
+                                    <div class="row col-12 mb-2" style="margin-left: 0px; margin-right: 0px;">
+                                        <button type="button" class="editor__run btn btn-primary text-danger animate-down-2 col-12"><span class="fas fa-play mr-2"></span>Run</button>
+                                    </div>
+                                    <div class="row col-12 mb-2" style="margin-left: 0px; margin-right: 0px;">
+                                        <button type="button" class="editor__reset btn btn-primary text-dark animate-down-2 col-12"><span class="fas fa-redo mr-2"></span>Clear</button>    
+                                    </div>
                                 </div>
-                                <button type="button" class="editor__run btn btn-primary text-danger ml-2 mr-1 animate-down-2" style="width: 47%;"><span class="fas fa-play mr-2"></span>Run</button>
-                                <button type="button" class="editor__reset btn btn-primary text-dark ml-0 mr-2 animate-down-2" style="width: 47%;"><span class="fas fa-redo mr-2"></span>Reset</button>
-                            </div>
-                            
+                            </div>                            
                         </div>
                     </div>
 <!-- Level 1 -->
                     <div class="tab-pane fade" id="tabs-text-2" role="tabpanel" aria-labelledby="tabs-text-2-tab">
-                        <div class="row align-items-center ml-0">
-                            <pre id="code1" class="ace_editor rounded" style="min-height:600px; width: 60%;">
+                        <div class="row col-12" style="padding-right: 0px; padding-left: 15px; margin-left: 0px; margin-right: 0px;">
+                            <pre id="code1" class="ace_editor rounded col-8" style="min-height:max-content; width: auto;">
 <textarea class="ace_text-input">//Level 1
-def MoveForward():
-    // Dog Knight Move 1 Tile Forward
-def Level1():
-    MoveForward();
-    TurnLeft();
-    TurnLeft();
-    TurnLeft();
-    int x;
-    print("");
+MoveForward(4);
+Collect();
+TurnRight(2);
+MoveForward(1);
+TurnLeft(1);
+MoveForward(2);
+TurnRight(1);
+MoveForward(1);
+Collect();
+TurnRight(2);
+MoveForward(3);
+TurnRight(1);
+MoveForward(1);
+Collect();
+TurnLeft(1);
+MoveForward(2);
+OpenChest();
+
+function MoveForward(steps) {}
+function TurnLeft(x) {}
+function TurnRight(x) {}
+function Collect() {}
+function Attack() {}
+function TurnAround() {}
+function OpenChest() {}
 </textarea></pre>
-                            <img src="{% static 'img/solution/1.png' %}" class="rounded scale col-4 col-md-4 text-md-right">
+                            <div class="col-4" >
+                                <img src="{% static 'img/solution/1.png' %}" class="rounded scale" style="min-height: max-content; width: auto;">
+                            </div> 
                         </div>
                     </div>
 <!-- Level 2 -->
                     <div class="tab-pane fade" id="tabs-text-3" role="tabpanel" aria-labelledby="tabs-text-3-tab">
-                        <div class="row align-items-center ml-0">
-                            <pre id="code2" class="ace_editor rounded" style="min-height:600px; width: 60%;">
+                        <div class="row col-12" style="padding-right: 0px; padding-left: 15px; margin-left: 0px; margin-right: 0px;">
+                            <pre id="code2" class="ace_editor rounded col-8" style="min-height:max-content; width: auto;">
 <textarea class="ace_text-input">//Level 2
-def MoveForward():
-    // Dog Knight Move 1 Tile Forward
-def Level1():
-    MoveForward();
-    TurnLeft();
-    TurnLeft();
-    TurnLeft();
-    int x;
-    print("");
+MoveForward(3);
+Attack();
+MoveForward(3);
+Collect();
+TurnRight(1);
+MoveForward(2);
+Collect();
+TurnRight(1);
+MoveForward(1);
+Attack();
+MoveForward(1);
+TurnLeft(1);
+MoveForward(2);
+Collect();
+TurnLeft(1);
+MoveForward(4);
+OpenChest();
+
+function MoveForward(steps) {}
+function TurnLeft(x) {}
+function TurnRight(x) {}
+function Collect() {}
+function Attack() {}
+function TurnAround() {}
+function OpenChest() {}
 </textarea></pre>
-                            <img src="{% static 'img/solution/2.png' %}" class="rounded scale col-4 col-md-4 text-md-right">
+                            <div class="col-4" >
+                                <img src="{% static 'img/solution/2.png' %}" class="rounded scale" style="min-height: max-content; width: auto;">
+                            </div> 
                         </div>
                     </div>
 <!-- Level 3 -->
                     <div class="tab-pane fade" id="tabs-text-4" role="tabpanel" aria-labelledby="tabs-text-4-tab">
-                        <div class="row align-items-center ml-0">
-                            <pre id="code3" class="ace_editor rounded" style="min-height:600px; width: 60%;">
+                        <div class="row col-12" style="padding-right: 0px; padding-left: 15px; margin-left: 0px; margin-right: 0px;">
+                            <pre id="code3" class="ace_editor rounded col-8" style="min-height:max-content; width: auto;">
 <textarea class="ace_text-input">//Level 3
-def MoveForward():
-    // Dog Knight Move 1 Tile Forward
-def Level1():
-    MoveForward();
-    TurnLeft();
-    TurnLeft();
-    TurnLeft();
-    int x;
-    print("");
+MoveForward(1);
+
+for(var i=0; i<3; i++){
+    MoveForward(1);
+    Attack();
+    MoveForward(1);
+    TurnRight(1);
+    MoveForward(2);
+    Collect();
+    TurnLeft(2);
+    MoveForward(2);
+    TurnRight(1);
+}
+
+MoveForward(2);
+OpenChest();
+
+function MoveForward(steps) {}
+function TurnLeft(x) {}
+function TurnRight(x) {}
+function Collect() {}
+function Attack() {}
+function TurnAround() {}
+function OpenChest() {}
 </textarea></pre>
-                            <img src="{% static 'img/solution/3.png' %}" class="rounded scale col-4 col-md-4 text-md-right">
+                            <div class="col-4" >
+                                <img src="{% static 'img/solution/3.png' %}" class="rounded scale" style="min-height: max-content; width: auto;">
+                            </div> 
                         </div>
                     </div>
 <!-- Level 4 -->
                     <div class="tab-pane fade" id="tabs-text-5" role="tabpanel" aria-labelledby="tabs-text-5-tab">
-                        <div class="row align-items-center ml-0">
-                            <pre id="code4" class="ace_editor rounded" style="min-height:600px; width: 60%;">
+                        <div class="row col-12" style="padding-right: 0px; padding-left: 15px; margin-left: 0px; margin-right: 0px;">
+                            <pre id="code4" class="ace_editor rounded col-8" style="min-height:max-content; width: auto;">
 <textarea class="ace_text-input">//Level 4
-def MoveForward():
-    // Dog Knight Move 1 Tile Forward
-def Level1():
-    MoveForward();
-    TurnLeft();
-    TurnLeft();
-    TurnLeft();
-    int x;
-    print("");
+MoveForward(1);
+
+for(var i=0; i<2; i++){
+    MoveForward(1);
+    Attack();
+    MoveForward(1);
+    TurnRight(1);
+    MoveForward(3);
+    TurnLeft(1);
+    MoveForward(3);
+    TurnLeft(1);
+}
+
+MoveForward(1);
+Attack();
+MoveForward(3);
+TurnRight(1);
+MoveForward(2);
+Demo();
+MoveForward(1);
+TurnLeft(1)
+Demo();
+MoveForward(1);
+TurnLeft(1)
+Demo();
+MoveForward(1);
+TurnLeft(1)
+MoveForward(3);
+OpenChest();
+
+function Demo(){
+    MoveForward(1);
+    Collect();
+    TurnRight(2);
+    MoveForward(1);
+    TurnLeft(1);
+    MoveForward(1);
+}
+
+function MoveForward(steps) {}
+function TurnLeft(x) {}
+function TurnRight(x) {}
+function Collect() {}
+function Attack() {}
+function TurnAround() {}
+function OpenChest() {}
 </textarea></pre>
-                            <img src="{% static 'img/solution/4.png' %}" class="rounded scale col-4 col-md-4 text-md-right">
+                            <div class="col-4" >
+                                <img src="{% static 'img/solution/4.png' %}" class="rounded scale" style="min-height: max-content; width: auto;">
+                            </div> 
                         </div>
                     </div>
 <!-- Level 5 -->
                     <div class="tab-pane fade" id="tabs-text-6" role="tabpanel" aria-labelledby="tabs-text-6-tab">
-                        <div class="row align-items-center ml-0">
-                            <pre id="code5" class="ace_editor rounded" style="min-height:600px; width: 60%;">
+                        <div class="row col-12" style="padding-right: 0px; padding-left: 15px; margin-left: 0px; margin-right: 0px;">
+                            <pre id="code5" class="ace_editor rounded col-8" style="min-height:max-content; width: auto;">
 <textarea class="ace_text-input">//Level 5
-def MoveForward():
-    // Dog Knight Move 1 Tile Forward
-def Level1():
-    MoveForward();
-    TurnLeft();
-    TurnLeft();
-    TurnLeft();
-    int x;
-    print("");
+for(var i=0; i<5; i++){
+    MoveForward(1);
+    Attack();
+    MoveForward(1);
+    TurnRight(1);
+    MoveForward(1);
+    TurnLeft(1);
+}
+
+TurnRight(1);
+MoveForward(1);
+TurnRight(1);
+
+for(var m=0; m<3; m++){
+    MoveForward(1);
+    TurnLeft(1);
+    MoveForward(1);
+    Attack();
+    MoveForward(2);
+    Collect();
+    TurnAround();
+    MoveForward(3);
+    TurnLeft(1);
+    MoveForward(2);
+}
+
+MoveForward(1);
+OpenChest();
+
+function MoveForward(steps) {}
+function TurnLeft(x) {}
+function TurnRight(x) {}
+function Collect() {}
+function Attack() {}
+function TurnAround() {}
+function OpenChest() {}
 </textarea></pre>
-                            <img src="{% static 'img/solution/5.png' %}" class="rounded scale col-4 col-md-4 text-md-right">
+                            <div class="col-4" >
+                                <img src="{% static 'img/solution/5.png' %}" class="rounded scale" style="min-height: max-content; width: auto;">
+                            </div> 
                         </div>
                     </div>
 <!-- Level 6 -->
                     <div class="tab-pane fade" id="tabs-text-7" role="tabpanel" aria-labelledby="tabs-text-7-tab">
-                        <div class="row align-items-center ml-0">
-                            <pre id="code6" class="ace_editor rounded" style="min-height:600px; width: 60%;">
+                        <div class="row col-12" style="padding-right: 0px; padding-left: 15px; margin-left: 0px; margin-right: 0px;">
+                            <pre id="code6" class="ace_editor rounded col-8" style="min-height:max-content; width: auto;">
 <textarea class="ace_text-input">//Level 6
-def MoveForward():
-    // Dog Knight Move 1 Tile Forward
-def Level1():
-    MoveForward();
-    TurnLeft();
-    TurnLeft();
-    TurnLeft();
-    int x;
-    print("");
+MoveForward(2);
+TurnRight(1);
+
+for(var i=0; i<3; i++){
+    for(var j=0; j<3; j++){
+        MoveForward(3);
+        Attack();
+    }
+    
+    MoveForward(2);
+    Collect();
+    TurnAround();
+    MoveForward(1);
+    TurnRight(1);
+}
+
+MoveForward(2);
+TurnRight(1);
+MoveForward(2);
+OpenChest();
+
+function MoveForward(steps) {}
+function TurnLeft(x) {}
+function TurnRight(x) {}
+function Collect() {}
+function Attack() {}
+function TurnAround() {}
+function OpenChest() {}
 </textarea></pre>
-                            <img src="{% static 'img/solution/6.png' %}" class="rounded scale col-4 col-md-4 text-md-right">
+                            <div class="col-4" >
+                                <img src="{% static 'img/solution/6.png' %}" class="rounded scale" style="min-height: max-content; width: auto;">
+                            </div> 
                         </div>
                     </div>
 <!-- Level 7 -->
                     <div class="tab-pane fade" id="tabs-text-8" role="tabpanel" aria-labelledby="tabs-text-8-tab">
-                        <div class="row align-items-center ml-0">
-                            <pre id="code7" class="ace_editor rounded" style="min-height:600px; width: 60%;">
+                        <div class="row col-12" style="padding-right: 0px; padding-left: 15px; margin-left: 0px; margin-right: 0px;">
+                            <pre id="code7" class="ace_editor rounded col-8" style="min-height:max-content; width: auto;">
 <textarea class="ace_text-input">//Level 7
-def MoveForward():
-    // Dog Knight Move 1 Tile Forward
-def Level1():
-    MoveForward();
-    TurnLeft();
-    TurnLeft();
-    TurnLeft();
-    int x;
-    print("");
+var meet_a_slime = new Boolean();
+MoveForward(2);
+
+for(var i=0; i<2; i++){
+    MoveForward(1);
+    if(meet_a_slime == true){
+        Attack();
+    }
+    else{
+        Collect();
+    }
+    MoveForward(1);
+    TurnRight(1);
+    for(var j=0; j<3; j++){
+        MoveForward(1);
+    }
+    if(meet_a_slime == true){
+        Attack();
+    }
+    else{
+        Collect();
+    }
+    TurnLeft(1);   
+    MoveForward(1);
+    if(meet_a_slime == true){
+        Attack();
+    }
+    else{
+        Collect();
+    }
+    MoveForward(1);
+    TurnLeft(1);  
+    for(var j=0; j<3; j++){
+        MoveForward(1);
+    }
+    if(meet_a_slime == true){
+        Attack();
+    }
+    else{
+        Collect();
+    }
+    TurnRight(1);
+}
+
+MoveForward(2);
+OpenChest();
+
+function MoveForward(steps) {}
+function TurnLeft(x) {}
+function TurnRight(x) {}
+function Collect() {}
+function Attack() {}
+function TurnAround() {}
+function OpenChest() {}
 </textarea></pre>
-                            <img src="{% static 'img/solution/7.png' %}" class="rounded scale col-4 col-md-4 text-md-right">
+                            <div class="col-4" >
+                                <img src="{% static 'img/solution/7.png' %}" class="rounded scale" style="min-height: max-content; width: auto;">
+                            </div> 
                         </div>
                     </div>
 <!-- Level 8 -->
                     <div class="tab-pane fade" id="tabs-text-9" role="tabpanel" aria-labelledby="tabs-text-9-tab">
-                        <div class="row align-items-center ml-0">
-                            <pre id="code8" class="ace_editor rounded" style="min-height:600px; width: 60%;">
+                        <div class="row col-12" style="padding-right: 0px; padding-left: 15px; margin-left: 0px; margin-right: 0px;">
+                            <pre id="code8" class="ace_editor rounded col-8" style="min-height:max-content; width: auto;">
 <textarea class="ace_text-input">//Level 8
-def MoveForward():
-    // Dog Knight Move 1 Tile Forward
-def Level1():
-    MoveForward();
-    TurnLeft();
-    TurnLeft();
-    TurnLeft();
-    int x;
-    print("");
+var meet_a_slime = new Boolean();
+MoveForward(2);
+ConditionDemo(meet_a_slime);
+TurnRight(1);
+MoveForward(1);
+ConditionDemo(meet_a_slime);
+TurnLeft(1);
+MoveForward(1);
+ConditionDemo(meet_a_slime);
+TurnLeft(1);
+MoveForward(2);
+TurnLeft(1);
+MoveForward(3);
+OpenChest();
+
+function ConditionDemo(slime){
+    if(slime == true){
+        for(var i=0; i<3; i++){
+            Attack();
+            MoveForward(2);
+        }
+    }
+    else{
+        for(var m=0; m<3; m++){
+            Collect();
+            MoveForward(3);
+            TurnRight(1);
+            MoveForward(1);
+        }
+    }
+}
+
+function MoveForward(steps) {}
+function TurnLeft(x) {}
+function TurnRight(x) {}
+function Collect() {}
+function Attack() {}
+function TurnAround() {}
+function OpenChest() {}
 </textarea></pre>
-                            <img src="{% static 'img/solution/8.png' %}" class="rounded scale col-4 col-md-4 text-md-right">
+                            <div class="col-4" >
+                                <img src="{% static 'img/solution/8.png' %}" class="rounded scale" style="min-height: max-content; width: auto;">
+                            </div> 
                         </div>
                     </div>
 <!-- Blocks -->
                     <div class="tab-pane fade" id="tabs-text-10" role="tabpanel" aria-labelledby="tabs-text-10-tab">
-                        <div class="row align-items-center ml-0">
-                            <pre id="code9" class="ace_editor rounded" style="min-height:600px; width: 60%;">
+                        <div class="row col-12" style="padding-right: 0px; padding-left: 15px; margin-left: 0px; margin-right: 0px;">
+                            <pre id="code9" class="ace_editor rounded col-8" style="min-height:max-content; width: auto;">
 <textarea class="ace_text-input">//Basic Blocks
-def MoveForward():
-    // Dog Knight Move 1 Tile Forward
-def Level1():
-    MoveForward();
-    TurnLeft();
-    TurnLeft();
-    TurnLeft();
-    int x;
-    print("");
+function MoveForward(steps) {
+    //Dog Knight will take three steps forward
+}
+
+function TurnLeft(x) {
+    //Dog Knight will turn 90 degrees to the left x times
+}
+
+function TurnRight(x) {
+    //Dog Knight will turn 90 degrees to the right x times
+}
+
+function Collect() {
+    //Dog Knight will collect gem
+}
+
+function Attack() {
+    //Dog Knight will attack slimes
+}
+
+function TurnAround() {
+    //Dog Knight will attack slimes
+}
+
+function OpenChest() {
+    //Dog Knight will open treasure chest
+}
 </textarea></pre>
-                            <img src="{% static 'img/solution/0.png' %}" class="rounded scale col-4 col-md-4 text-md-right">
+                            <div class="col-4" >
+                                <img src="{% static 'img/solution/9.png' %}" class="rounded scale" style="min-height: max-content; width: auto;">
+                            </div> 
                         </div>
                     </div>
 
