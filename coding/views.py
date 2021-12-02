@@ -1,3 +1,4 @@
+from django.http.response import HttpResponseRedirect
 from .forms import *
 from .models import *
 
@@ -23,13 +24,15 @@ def index(request):
     return response
 
 def gamePage(request):
-    #context_dict = {}
     response = render(request, 'coding/game.html')
     return response
 
 def solutionPage(request):
-    #context_dict = {}
-    response = render(request, 'coding/solution.html')
+    if request.user.is_authenticated:
+        response = render(request, 'coding/solution.html')
+    else:
+        messages.warning(request, "Access denied! To view the solution, please login first!")
+        return redirect("index")
     return response
 
 def about(request):
@@ -41,32 +44,39 @@ def downloadPage(request):
     return response
 
 def register_user(request):
-	if request.method == "POST":
-		form = NewUser(request.POST)
-		if form.is_valid():
-			user = form.save()
-			login(request, user)
-			messages.success(request, "Registration successful." )
-			return redirect("index")
-		messages.error(request, "Unsuccessful registration. Invalid information.")
-	form = NewUser()
-	return render (request=request, template_name="coding/register.html", context={"register_form":form})
+    if request.user.is_authenticated:
+        messages.warning(request, "Access denied! You have already logged in!")
+        return redirect("index")
+    else:
+        if request.method == "POST":
+            form = NewUser(request.POST)
+            if form.is_valid():
+                user = form.save()
+                login(request, user)
+                messages.success(request, "Registration successful." )
+                return redirect("index")
+            messages.error(request, "Unsuccessful registration. Invalid information.")
+        form = NewUser()
+        return render (request=request, template_name="coding/register.html", context={"register_form":form})
 
 def login_user(request):
-
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            messages.success(request, 'You have successfully logged in')
-            return redirect("index")
-        else:
-            messages.success(request, 'Error logging in')
-            return redirect("coding:login")
+    if request.user.is_authenticated:
+        messages.warning(request, "Access denied! You have already logged in!")
+        return redirect("index")
     else:
-        return render(request, 'coding/login.html', {})
+        if request.method == 'POST':
+            username = request.POST['username']
+            password = request.POST['password']
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                messages.success(request, 'You have successfully logged in')
+                return redirect("index")
+            else:
+                messages.success(request, 'Error logging in')
+                return redirect("coding:login")
+        else:
+            return render(request, 'coding/login.html', {})
 
 
 def logout_user(request):
