@@ -1,0 +1,2 @@
+Django==3.2.9
+django_model_utils==4.2.0
