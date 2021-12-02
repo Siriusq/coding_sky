@@ -39,6 +39,15 @@ def about(request):
     response = render(request, 'coding/about.html')
     return response
 
+def error_404(request, exception):
+    return render(request, 'coding/404.html')
+
+def error_403(request, exception):
+    return render(request, 'coding/403.html')
+
+def error_500(request):
+    return render(request, 'coding/500.html')
+
 def downloadPage(request):
     response = render(request, 'coding/download.html')
     return response

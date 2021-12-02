@@ -21,6 +21,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 #from registration.backends.simple.views import RegistrationView
 from django.urls import reverse
+from django.conf.urls import handler400, handler403, handler404, handler500
 
 from coding.views import *
 
@@ -31,3 +32,7 @@ urlpatterns = [
     path('coding/', include('coding.urls')),
     path('', index,name='index'),
 ]
+
+handler404 = error_404
+handler500 = error_500
+handler403 = error_403

@@ -1,0 +1,29 @@
+{% extends 'coding/error_base.html' %}
+{% load static %}
+
+{% block title_block %}
+    404
+{% endblock %}
+
+{% block body_block %}
+<a href="{% url 'coding:index' %}">
+    <img class="img-fluid w-60" src="{% static 'img/large/404.png' %}" alt="Animals vector created by stories - www.freepik.com">
+</a>
+<div class="row justify-content-center">
+    <div class="col-12 col-md-8">
+        <h1 class="mt-5 font-weight-light">
+            Page not 
+            <span class="font-weight-bolder text-dark">
+                found
+            </span>
+        </h1>
+        <p class="lead my-4">
+            Oops! Looks like you followed a bad link. If you think this is a problem with us, please tell us.
+        </p>
+        <a class="btn btn-primary animate-hover" href="{% url 'coding:index' %}">
+            <i class="fas fa-chevron-left mr-3 pl-2 animate-left-3"></i>
+            Go back home
+        </a>
+     </div>
+</div>
+{% endblock %}
