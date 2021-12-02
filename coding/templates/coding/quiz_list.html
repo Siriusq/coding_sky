@@ -1,7 +1,7 @@
 {% extends 'coding/base.html' %}
 {% load i18n %}
 {% load quiz_tags %}
-{% block title %}{% trans "All Quizzes" %}{% endblock %}
+{% block title_block %}{% trans "Quiz" %}{% endblock %}
 
 {% block body_block %}
 <div class="row">
@@ -19,7 +19,7 @@
 					<tr>
 					<th>{% trans "Title" %}</th>
 					<th>{% trans "Category" %}</th>
-					<th>{% trans "Exam" %}</th>
+					<th>{% trans "Records" %}</th>
 					<th>{% trans "Single attempt" %}</th>
 					<th></th>
 					</tr>

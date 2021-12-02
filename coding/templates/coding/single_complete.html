@@ -3,16 +3,25 @@
 
 {% load quiz_tags %}
 
-{% block title %} {{ quiz.title }} {% endblock %}
+{% block title_block %} {{ quiz.title }} {% endblock %}
 {% block description %} {{ quiz.title }} - {{ quiz.description }} {% endblock %}
 
 {% block body_block %}
 
-
 {% if user.is_authenticated %}
-  <p>{% trans "You have already sat this exam and only one sitting is permitted" %}.</p>
+  <p>
+    <div class="alert alert-info shadow-soft mb-4 mb-lg-5" role="alert">
+      <span class="alert-inner--icon icon-lg"><span class="far fa-bell"></span></span>
+      <span class="alert-heading">Info</span>
+      <p>{% trans "You have already sat this quiz and only one sitting is permitted" %}.</p>
+      <hr>
+      <a href="{% url 'coding:quiz_index' %}" class="btn btn-primary btn-block mt-1 animate-down-1" type="button">
+        <span class="mr-2"><span class="fas fa-arrow-left"></span></span>
+        Back To Quiz Page
+      </a>
+  </div>
 {% else %}
-  <p>{% trans "This exam is only accessible to signed in users" %}.</p>
+  <p>{% trans "This quiz is only accessible to signed in users" %}.</p>
 {% endif %}
 
 {% endblock %}

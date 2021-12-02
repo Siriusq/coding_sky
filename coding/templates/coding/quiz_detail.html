@@ -1,9 +1,7 @@
 {% extends 'coding/base.html' %}
 {% load i18n %}
 {% load static %}
-{% block title %}
-{{ quiz.title }}
-{% endblock %}
+{% block title_block %}{% trans "Quiz" %}{% endblock %}
 
 {% block body_block %}
 <div class="row">

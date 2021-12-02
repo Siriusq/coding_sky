@@ -1,9 +1,9 @@
 {% extends 'coding/base.html' %}
 {% load i18n %}
-{% block title %}{% trans "All Quizzes" %}{% endblock %}
+{% block title_block %}{% trans "All Quizzes" %}{% endblock %}
 
 {% block body_block %}
-<h2>{% trans "List of complete exams" %}</h2>
+<h2>{% trans "List of complete quizzes" %}</h2>
     {% if sitting_list %}
 
 		<table class="table table-bordered table-striped">

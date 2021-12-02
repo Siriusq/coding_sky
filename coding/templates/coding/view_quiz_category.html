@@ -1,6 +1,6 @@
 {% extends 'coding/base.html' %}
 {% load i18n %}
-{% block title %}{% trans "Quizzes related to" %} {{ category.category }}{% endblock %}
+{% block title_block %}{% trans "Quizzes related to" %} {{ category.category }}{% endblock %}
 
 {% block body_block %}
 <h1>{% trans "Quizzes in the" %} <strong>{{ category.category }} </strong>{% trans "category" %}</h1>

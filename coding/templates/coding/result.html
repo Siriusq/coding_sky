@@ -1,10 +1,9 @@
 {% extends 'coding/base.html' %}
 {% load i18n %}
-
 {% load quiz_tags %}
+{% block title_block %}{% trans "Quiz Result" %}{% endblock %}
 
-{% block title %} {{ quiz.title}} {% endblock %}
-{% block description %} {% trans "Exam Results for" %} {{ quiz.title }} {% endblock %}
+{% block description %} {% trans "Quiz Results for" %} {{ quiz.title }} {% endblock %}
 
 {% block body_block %}
 
@@ -50,10 +49,10 @@
   <div class="col-12">
     <div class="card bg-primary shadow-soft border-light mb-5 mt-3">
       <div class="card-header pb-0">
-        <h2 class="h2 mb-5 text-center">{% trans "Exam results" %}</h2>
+        <h2 class="h2 mb-5 text-center">{% trans "Quiz results" %}</h2>
 
         <div style="float: right;">
-          <h2 class="h5 mb-4">{% trans "Exam title" %}: {{ quiz.title }}</h2>
+          <h2 class="h5 mb-4">{% trans "Quiz title" %}: {{ quiz.title }}</h2>
         </div>
         <h2 class="h5 mb-4">
           {% trans "You answered" %} <strong>{{ score }}</strong> {% trans "questions correctly out of" %} <strong>{{ max_score }}</strong>, {% trans "giving you" %} <strong>{{ percent }}</strong> {% trans "percent correct" %}
@@ -70,10 +69,10 @@
         </div>    
         {% endif %}
 
-        <p class="lead mt-4">{% trans "Review the questions and try the exam again in the future"%}.</p>
+        <p class="lead mt-4">{% trans "Review the questions and try the quiz again in the future"%}.</p>
 
         {% if user.is_authenticated %}
-          <p class="lead">{% trans "The result of this exam will be stored in your progress section so you can review and monitor your progression" %}.</p>
+          <p class="lead">{% trans "The result of this quiz will be stored in your progress section so you can review and monitor your progression" %}.</p>
         {% endif %}
       </div>
     </div>
@@ -119,5 +118,10 @@
 </div>
 {% endfor %}
 {% endif %}
+
+<a href="{% url 'coding:quiz_index' %}" class="btn btn-primary btn-block mt-1 mb-5 animate-down-2" type="button" style="color: #F5B759;">
+  <span class="mr-2"><span class="fas fa-arrow-left"></span></span>
+  Back To Quiz Page
+</a>
 
 {% endblock %}
