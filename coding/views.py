@@ -24,6 +24,7 @@ def index(request):
     return response
 
 def gamePage(request):
+    messages.success(request, "Game loading, please wait..." )
     response = render(request, 'coding/game.html')
     return response
 
