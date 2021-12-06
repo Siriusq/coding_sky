@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.apps import apps
 from django.contrib.auth.models import User
 from django.http import HttpRequest
-from django.urls import resolve
+from django.urls import resolve, reverse
 from django.test import Client
 
 from ..models import *
@@ -130,3 +130,20 @@ class authTestCase(TestCase):
         c = Client()
         response = c.post('/coding/progress/')
         self.assertNotIn(b"Record", response.content)
+
+class responseTestCase(TestCase):
+    def test_quiz_res(self):
+        response = self.client.get(reverse('coding:quiz_index'))
+        self.assertEqual(response.status_code, 200)
+
+    def test_cat_res(self):
+        response = self.client.get(reverse('coding:quiz_category_list_all'))
+        self.assertEqual(response.status_code, 200)
+
+    def test_record_res(self):
+        response = self.client.get(reverse('coding:quiz_progress'))
+        self.assertEqual(response.status_code, 302)
+
+    def test_marking_res(self):
+        response = self.client.get(reverse('coding:quiz_marking'))
+        self.assertEqual(response.status_code, 302)
