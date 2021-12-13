@@ -1,3 +1,13 @@
+'''
+***************************************************************************************
+*    Title: django-quiz-app
+*    Author: swapnil shindemeshram 
+*    Date: 2019
+*    Code version: master/2d70588
+*    Availability: https://github.com/sswapnil2/django-quiz-app
+*    Part of the code is referenced from the source code above
+***************************************************************************************
+'''
 import re
 import json
 import csv
@@ -14,7 +24,6 @@ from .signals import csv_uploaded
 from .validators import csv_file_validator
 from django.contrib.auth.models import User
 from django.contrib import messages
-
 
 class CategoryManager(models.Manager):
 

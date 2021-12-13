@@ -1,7 +1,6 @@
 from django.http.response import HttpResponseRedirect
 from .forms import *
 from .models import *
-
 import random
 from django.contrib.auth.decorators import login_required, permission_required
 from django.core.exceptions import PermissionDenied
@@ -15,8 +14,6 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .forms import NewUser
-
-# Create your views here.
 
 def index(request):
     context_dict = {}
@@ -94,7 +91,16 @@ def logout_user(request):
     messages.success(request, 'You have been logged out!')
     return redirect('index')
 
-
+'''
+***************************************************************************************
+*    Title: django-quiz-app
+*    Author: swapnil shindemeshram 
+*    Date: 2019
+*    Code version: master/2d70588
+*    Availability: https://github.com/sswapnil2/django-quiz-app
+*    Part of the code is referenced from the source code above
+***************************************************************************************
+'''
 class QuizMarkerMixin(object):
     @method_decorator(login_required)
     @method_decorator(permission_required('quiz.view_sittings'))

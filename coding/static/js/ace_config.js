@@ -1,3 +1,11 @@
+/***************************************************************************************
+*    Title: code-editor-tutorial
+*    Author: Lu-Vuong Le
+*    Date: 2020
+*    Code version: master/4080faf
+*    Availability: https://github.com/luvuong-le/code-editor-tutorial
+*    Part of the code is referenced from the source code above
+***************************************************************************************/
 const consoleLogList = document.querySelector('.editor__console-logs');
 const executeCodeBtn = document.querySelector('.editor__run');
 const resetCodeBtn = document.querySelector('.editor__reset');

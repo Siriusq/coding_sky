@@ -1,14 +1,18 @@
+'''
+***************************************************************************************
+*    Title: django-quiz-app
+*    Author: swapnil shindemeshram 
+*    Date: 2019
+*    Code version: master/2d70588
+*    Availability: https://github.com/sswapnil2/django-quiz-app
+*    Part of the code is referenced from the source code above
+***************************************************************************************
+'''
 from django import template
-
 register = template.Library()
-
 
 @register.inclusion_tag('coding/correct_answer.html', takes_context=True)
 def correct_answer_for_all(context, question):
-    """
-    processes the correct answer based on a given question object
-    if the answer is incorrect, informs the user
-    """
     answers = question.get_answers()
     incorrect_list = context.get('incorrect_questions', [])
     if question.id in incorrect_list:

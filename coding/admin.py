@@ -1,7 +1,16 @@
+'''
+***************************************************************************************
+*    Title: django-quiz-app
+*    Author: swapnil shindemeshram 
+*    Date: 2019
+*    Code version: master/2d70588
+*    Availability: https://github.com/sswapnil2/django-quiz-app
+*    Part of the code is referenced from the source code above
+***************************************************************************************
+'''
 from django.contrib import admin
 from django import forms
 from django.contrib.admin.widgets import FilteredSelectMultiple
-# Register your models here.
 from .models import Quiz, Category, Question, Progress
 from mcq.models import MCQQuestion, Answer
 from django.utils.translation import ugettext_lazy as _

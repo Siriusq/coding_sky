@@ -48,9 +48,8 @@ If used for development
         $ python manage.py runserver
 
 ## Test
-<test_number> should be 1,2,3,4.....
 
-    $ python manage.py test coding.tests<test_number>
+    $ python manage.py test coding.tests
 
 ## Browser Compatibility
 Since the game uses WebGL 2.0, according to the [Unity Official Documentation](https://docs.unity3d.com/2021.1/Documentation/Manual/webgl-browsercompatibility.html), the compatible browsers are as follows.
@@ -59,3 +58,11 @@ Since the game uses WebGL 2.0, according to the [Unity Official Documentation](h
 - Google Chrome 56 and newer
 - Microsoft Edge (based on Chromium)
 - Apple Safari 15 and newer
+
+## Reference
+The quiz function and running Javascript code in the browser function refer to the following source code.
+
+> [1]	S. Shindemeshram (2019), django-quiz-app: It is django based quiz app for multiple choice questions. [Source code]. Available: https://github.com/sswapnil2/django-quiz-app.
+
+> [2]	L.-V. Le (2020), code-editor-tutorial. [Source code]. Available: https://github.com/luvuong-le/code-editor-tutorial.
+
