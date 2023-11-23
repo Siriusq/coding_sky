@@ -1,7 +1,16 @@
 # Coding Sky
+![preview](./preview.png)
+![GitHub](https://img.shields.io/github/license/Siriusq/coding_sky?style=flat-square)
+![GitHub last commit (branch)](https://img.shields.io/github/last-commit/Siriusq/coding_sky/master?style=flat-square&logo=github)
+![GitHub top language](https://img.shields.io/github/languages/top/Siriusq/coding_sky?style=flat-square&logo=javascript&color=%23F7DF1E)
+![Static Badge](https://img.shields.io/badge/3.2.9-%23092E20?style=flat-square&logo=django&logoColor=%23092E20&label=Django&labelColor=%23555555&color=%23092E20)
+![Static Badge](https://img.shields.io/badge/2.0-%23092E20?style=flat-square&logo=webgl&logoColor=%23990000&label=WebGL&color=%23990000)
+
 University of Glasgow IT+ Project Web App - Coding Sky
 
 COMPSCI5018P MSc Development Project for IT+ (2020/21)
+
+[Unity Game Repo](https://github.com/Siriusq/CodingSky)
 
 
 ## Introduction
